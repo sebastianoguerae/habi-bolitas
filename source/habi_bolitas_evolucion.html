@@ -631,8 +631,8 @@ document.getElementById('p30play').addEventListener('click',function(){const sl=
       <label><input type="radio" name="agr" class="fagr" value="bloque"> Bloque de junta</label>
     </div>
     <div class="fgroup"><b>Tasa</b>
-      <label><input type="radio" name="fx" class="ffx" value="const"> Constante 3,600 / 18.5</label>
-      <label><input type="radio" name="fx" class="ffx" value="var" checked> Variable por año (default)</label>
+      <label><input type="radio" name="fx" class="ffx" value="const" checked> Constante 3,100 / 17.0 (caso plan, default)</label>
+      <label><input type="radio" name="fx" class="ffx" value="var"> Variable por año (2027-2030 siempre a 3,100 / 17.0)</label>
     </div>
     <div class="fgroup">
       <label class="togg"><input type="checkbox" id="postfin" checked> MM <b style="color:var(--red)">después de gastos financieros</b> (default)</label>
@@ -1040,7 +1040,7 @@ document.getElementById('p30play').addEventListener('click',function(){const sl=
 </div>
 
 <div id="pane-det">
-<div class="note" style="background:#FFF6E5;border-left:4px solid var(--amber);padding:8px 12px;margin:12px 2px"><b>2027 = caso plan del Modelo 2030 v2 (27-sep-2026)</b>, ya no el 2027e de agosto: cada línea toma su GTV y contribución 2027 del modelo por drivers, convertidos a la tasa de esta pestaña. Aparecen dos líneas nuevas desde 2027: <b>Home Equity</b> (piloto, se vende a 4 meses) y <b>Broker MX</b>. 2028-2030 viven en las pestañas «Plan 2030» y «Crecimiento por negocio».</div>
+<div class="note" style="background:#FFF6E5;border-left:4px solid var(--amber);padding:8px 12px;margin:12px 2px"><b>2026 y 2027 = caso plan del Modelo 2030 v2 (27-sep-2026)</b>, ya no el 2026e/2027e de agosto: cada línea toma su GTV y contribución 2027 del modelo por drivers, convertidos a la tasa de esta pestaña. Aparecen dos líneas nuevas desde 2027: <b>Home Equity</b> (piloto, se vende a 4 meses) y <b>Broker MX</b>. 2028-2030 viven en las pestañas «Plan 2030» y «Crecimiento por negocio».</div>
 
 <div class="legend" id="legend"></div>
 
@@ -1184,20 +1184,20 @@ const LINES=[
   // El interes anterior (2,5/2,9/3,8/4,4/4,0) venia del SHEET y NO tiene soporte contable: el
   // BLT no llega a esa cifra ni en su proyeccion de 2028. El tracker transaccional (0,48% del
   // GMV) tampoco sirve: subcarga ~3x contra el BLT. Ver seccion 3b del capitulo Market Maker.
-  gtv:[127.9,130.6,136.5,109.2,109.14], cb:[5.5,6.47,13.95,13.79,14.84], ca:[4.84,5.65,12.76,12.10,13.53]},
+  gtv:[127.9,130.6,136.5,109.14,109.14], cb:[5.5,6.47,13.95,13.75,14.84], ca:[4.84,5.65,12.76,12.44,13.53]},
  {id:'mmmx',name:'MM MX',pais:'MX',cap:'intensivo',role:'cosecha',color:'#A472F0',
   // NO se recalibra contra el P&L por linea de BET, a proposito: MM MX e Inmo MX incluyen el
   // attach de HC100/Inmo100 (el margen de financiacion sobre la venta, 4.42% neto/GMV x ~68% de
   // penetracion = ~3% blended), que BET no atribuye a estas lineas. Recalibrar contra BET se lo
   // quitaria y subestimaria el negocio. Esta linea se queda como estaba.
-  gtv:[100.2,108.9,93.4,81.2,81.19], cb:[11.8,5.9,5.7,8.6,9.34], ca:[6.3,-0.5,0.7,4.2,5.52]},
+  gtv:[100.2,108.9,93.4,81.19,81.19], cb:[11.8,5.9,5.7,8.61,9.34], ca:[6.3,-0.5,0.7,4.47,5.52]},
  {id:'inmoco',name:'Inmo CO',pais:'CO',cap:'light',role:'prioridad',color:'#146B3A',
   // 2027: GTV +100% (franquicias + crecimiento propio). El margen BAJA de 2.81% a 2.34% porque la mitad
   // de ese crecimiento entra por franquicia, donde Habi retiene 1 de 5 puntos (0.92% contra 2.81%).
   // Crecer 100% en volumen deja la contribucion casi igual: mas volumen y menos margen se cancelan.
   // NO se suma aqui el attach de credito (0.75pp en 2027 segun el modelo de Red Habi): ese margen ya
   // esta contado en la linea HabiCredit y sumarlo seria doble conteo. Ver la pestaña Red Habi.
-  gtv:[31.5,28.7,32.8,50.3,132.26], cb:[0.4,0.53,0.67,1.07,2.42], ca:[0.4,0.53,0.67,1.07,2.42]},
+  gtv:[31.5,28.7,32.8,49.91,132.26], cb:[0.4,0.53,0.67,1.06,2.42], ca:[0.4,0.53,0.67,1.06,2.42]},
  {id:'inmomx',name:'Inmo MX',pais:'MX',cap:'light',role:'prioridad',color:'#54C96B',star:true,
   // NO se recalibra contra el P&L por linea de BET, a proposito: MM MX e Inmo MX incluyen el
   // attach de HC100/Inmo100 (el margen de financiacion sobre la venta, 4.42% neto/GMV x ~68% de
@@ -1210,7 +1210,7 @@ const LINES=[
   // PERIMETRO SIN CONCILIAR: el BLT mide $12.0M de GMV en 2026 con 183 facturas; el Sheet mide $31.1M.
   // Aca se conserva el GTV del Sheet (base del resto del aplicativo) y se le aplica el MARGEN del BLT.
   // 2027: GTV +100% (franquicias + crecimiento propio) y margen 7.00%, objetivo del plan de Red Habi.
-  gtv:[2.4,11.4,15.1,31.1,96.95], cb:[0.4,0.44,0.54,1.55,4.83], ca:[0.4,0.44,0.54,1.55,4.83]},
+  gtv:[2.4,11.4,15.1,30.30,96.95], cb:[0.4,0.44,0.54,1.51,4.83], ca:[0.4,0.44,0.54,1.51,4.83]},
  {id:'habicredit',name:'HabiCredit',pais:'CO',cap:'light',role:'margen',color:'#0E9DA8',
   // CIFRAS REALES, no del Sheet. Dos fuentes independientes que coinciden: el P&L contable
   // (Contribution Profit) del dashboard de Capital Markets y el tape por cohorte de desembolso
@@ -1224,7 +1224,7 @@ const LINES=[
   // 2023 se queda como estaba: el tape arranca en enero de 2024. No es comparable.
   // OJO: de cada peso de comision recibida, 67 centavos se van a comision de EXTERNOS,
   // proporcion que no ha mejorado en dos anios. Es la mayor palanca sin explotar del producto.
-  gtv:[86.3,212.1,338.0,350.7,425.98], cb:[1.5,0.59,2.47,2.60,3.47], ca:[1.5,0.59,2.47,2.60,3.47]},
+  gtv:[86.3,212.1,338.0,354.89,425.98], cb:[1.5,0.59,2.47,2.63,3.47], ca:[1.5,0.59,2.47,2.63,3.47]},
  {id:'pulppo',name:'Pulppo Ventas',pais:'MX',cap:'light',role:'margen',color:'#C43E7A',dashed:true,
   // 2023-2024 recuperados del Sheet Platform GTV ($59.3M y $110.1M de GTV). Estaban en null,
   // lo que inflaba el crecimiento de México en 2025 y hacía ver a Pulppo como línea nueva.
@@ -1233,7 +1233,7 @@ const LINES=[
   // = 28.4M MXN = $1.54M, o 0.56% del GTV. La serie anterior (2.54 en 2026, 4.06 en 2027) venia
   // del aplicativo original sin validar y sobrestimaba 65% y 111%. Pulppo cobra ~3.2% de comision
   // y le queda ~0.6% despues de pagar a los agentes. 2027 y 2023-2024 al rate de 2026.
-  gtv:[59.3,110.1,220.5,272.8,295.28], cb:[0.33,0.62,1.38,1.54,2.39], ca:[0.33,0.62,1.38,1.54,2.39]},
+  gtv:[59.3,110.1,220.5,268.43,295.28], cb:[0.33,0.62,1.38,1.50,2.39], ca:[0.33,0.62,1.38,1.50,2.39]},
  {id:'habicapital',name:'HabiCapital',pais:'CO',cap:'intensivo',role:'prioridad',color:'#8A6608',star:true,dashed:true,
   // GTV = desembolsos del modelo HabiCapital jul-26 (34,446 / 262,797 COP MM @3,900).
   // ⚠️ MARGEN NORMATIVO, NO MEDIDO: 4.5% del GMV en 2026 y 2027, por decisión explícita, como
@@ -1252,19 +1252,19 @@ const LINES=[
   // El margen sube en el tiempo porque seguros y servicing se cobran sobre la cartera ACUMULADA:
   // 1,91% (2027) -> 2,23% -> 3,30% -> 5,57% (2030).
   // Para volver al normativo: ca 0.396 y 3.033. Es una decision de presentacion, no de dato.
-  gtv:[null,null,null,8.8,80.92], cb:[null,null,null,-0.118,4.41], ca:[null,null,null,-0.118,4.41]},
+  gtv:[null,null,null,8.82,80.92], cb:[null,null,null,-0.12,4.41], ca:[null,null,null,-0.12,4.41]},
  {id:'vivnueva',name:'Vivienda Nueva',pais:'MX',cap:'light',role:'baja',color:'#2A6FBF',dashed:true,
   // Margen del BLT (data_combo_2, filas R445/R448/R456), no estimado: la constructora paga
   // 3.017% de comision sobre el GMV, de lo cual 2.000% se va en comision externa a brokers,
   // dejando un gross margin de 1.017% del GMV. Antes esta linea tenia 2.50% inventado.
   // Si ademas se descuenta la comision interna de ventas (0.165%, fila R452) quedaria en 0.85%.
-  gtv:[null,null,48,35.6,30.23], cb:[null,null,0.488,0.362,0.31], ca:[null,null,0.488,0.362,0.31]},
+  gtv:[null,null,48,35.56,30.23], cb:[null,null,0.488,0.36,0.31], ca:[null,null,0.488,0.36,0.31]},
  {id:'homeeq',name:'Home Equity',pais:'CO',cap:'light',role:'prioridad',color:'#D95926',dashed:true,
   // CASO PLAN v2 (27-sep-2026): originar y vender a 4 meses; 2027 = piloto. 2028-2030 en la pestaña Plan 2030.
   gtv:[null,null,null,null,4.73], cb:[null,null,null,null,0.56], ca:[null,null,null,null,0.56]},
  {id:'brokermx',name:'Broker MX (HabiCredit)',pais:'MX',cap:'light',role:'margen',color:'#0B7285',dashed:true,
   // CASO PLAN v2: crédito bancario gestionado por HabiCredit en México desde 2027 (600 créditos → 6.000 en 2030).
-  gtv:[null,null,null,null,64.78], cb:[null,null,null,null,0.48], ca:[null,null,null,null,0.48]},
+  gtv:[null,null,null,12.96,64.78], cb:[null,null,null,0.10,0.48], ca:[null,null,null,0.10,0.48]},
 ];
 const CAPINT={mmco:1,mmmx:1,habicapital:1,bmm:1};
 // Bloques con la MISMA forma que las líneas, para que todas las gráficas del primer tab puedan
@@ -1294,14 +1294,14 @@ const rad=c=>Math.max(5,Math.sqrt(Math.abs(c)/20.6)*44);
 // reporta es configurable (FXCONST): Colombia a 3,600. En modo constante se re-expresa
 // multiplicando por FXDATA/FXCONST; en modo variable, por FXDATA/tasa del año.
 const FXDATA={CO:3900,MX:18.5};
-const FXCONST={CO:3600,MX:18.5};
+const FXCONST={CO:3100,MX:17};
 const FXBASE=FXDATA;
 const FX={CO:{2023:4326,2024:4072,2025:4180,2026:3175,2027:3175},
           MX:{2023:17.74,2024:18.33,2025:19.30,2026:17.30,2027:17.30}};
 const fxVar=()=>{const el=document.querySelector('.ffx:checked');return el?el.value==='var':false;};
 function fxf(l,i){if(l.members)return 1; const p=l.pais;
   if(!fxVar())return FXDATA[p]/FXCONST[p];
-  const y=YRS[i], r=FX[p]&&FX[p][y];return r?FXDATA[p]/r:1;}
+  const y=YRS[i]; if(y>=2027) return FXDATA[p]/FXCONST[p]; const r=FX[p]&&FX[p][y];return r?FXDATA[p]/r:1;}
 // Cuando está en true, los bloques suman TODOS sus miembros e ignoran los filtros de país y
 // capital. Lo usa el buildup, que es un estado CONSOLIDADO: su punto de partida y de llegada
 // son el EBTDA de los dos países juntos, así que las barras tienen que ser de los dos países
@@ -2046,13 +2046,13 @@ function refreshTables(){
   document.getElementById('t2026').innerHTML=buildTable(2026);
   document.getElementById('t2027').innerHTML=buildTable(2027);
   document.getElementById('fxlbl').textContent=fxVar()
-    ?'Tasa VARIABLE por año (COP 4,072 / 4,180 / 3,175 · MXN 18.33 / 19.30 / 17.30; 2027 = spot 2026)'
-    :'Tasa CONSTANTE 3,600 COP / 18.5 MXN — aísla el efecto FX';
+    ?'Tasa VARIABLE por año (COP 4,072 / 4,180 / 3,175 · MXN 18.33 / 19.30 / 17.30; 2027-2030 = caso plan a 3,100 / 17.0)'
+    :'Tasa CONSTANTE 3,100 COP / 17.0 MXN — la del caso plan; aísla el efecto FX';
 }
 refreshTables();
-document.getElementById('tblnote').innerHTML='Contribución <b>antes / después de gastos financieros</b>: solo difiere en MM CO y MM MX (los negocios capital-intensivos que cargan el costo del inventario); en los capital-light ambas columnas coinciden. Margen = contribución / GTV. <b>Crec. GTV YoY</b> del TOTAL se calcula solo sobre las líneas con dato en los dos años (comparable). <sup>*</sup> crecimiento referenciado al de HabiCredit (solo HabiCapital 2026). <sup>»</sup> crecimiento fuera de la escala del eje X. Tasa constante 3,600 COP / 18.5 MXN.';
+document.getElementById('tblnote').innerHTML='Contribución <b>antes / después de gastos financieros</b>: solo difiere en MM CO y MM MX (los negocios capital-intensivos que cargan el costo del inventario); en los capital-light ambas columnas coinciden. Margen = contribución / GTV. <b>Crec. GTV YoY</b> del TOTAL se calcula solo sobre las líneas con dato en los dos años (comparable). <sup>*</sup> crecimiento referenciado al de HabiCredit (solo HabiCapital 2026). <sup>»</sup> crecimiento fuera de la escala del eje X. Tasa constante 3,100 COP / 17.0 MXN.';
 
-document.getElementById('assump').innerHTML='<b>Tamaño = margen de contribución (US$M).</b> MM: contribución de BET/ISIBOT, con toggle antes/después de gastos financieros (línea roja punteada = 0; burbuja con borde rojo = contribución negativa). Capital-light (Inmo, HabiCredit, Pulppo): contribución ≈ margen bruto (casi sin costos directos). <b>Inmo CO e Inmo MX 2027 = crecimiento +100% de GTV</b> (CO $50.3M→$100.6M, MX $31.1M→$62.2M), que combina franquicias y crecimiento propio. Los márgenes ya <b>no</b> se mantienen planos: <b>Inmo MX va a 7.00%</b> (objetivo del plan de Red Habi, partiendo del 4.99% medido en 2026) e <b>Inmo CO queda en 2.34%</b>, por debajo del 2.81% que se proyectaba antes, porque la mitad de ese crecimiento entra por franquicia y ahí Habi retiene <b>1 de 5 puntos</b> de comisión (0.92% contra 2.81%). El efecto neto de duplicar Inmo sobre el resultado 2027 es de apenas <b>+$0.3M</b>: Colombia agrega volumen y lo devuelve en comisión diluida. Crecer por franquicia compra volumen y capacidad instalada, no margen del año — el margen llega cuando madura el attach de crédito, que hoy se contabiliza en HabiCredit y HabiCapital y no en Inmo. El puente completo, año por año hasta 2030, está en la pestaña <b>Red Habi</b>. <b>Vivienda Nueva ya no es estimada:</b> su margen sale del BLT (filas R445/R448/R456) — la constructora paga 3.02% de comisión sobre el GMV, de lo cual 2.00% se va en comisión externa a brokers, dejando <b>1.02% de gross margin</b>. Antes esta línea llevaba 2.50% inventado, dos veces y media más. Descontando también la comisión interna de ventas (0.165%) quedaría en 0.85%. ⚠️ <b>HabiCapital lleva un margen NORMATIVO de 4.5% del GMV en 2026 y 2027</b>, puesto por decisión explícita: es el margen de <b>estado consolidado</b> del negocio, el que se espera una vez maduro con la titularización recurrente y seguros/servicing corriendo a escala. <b>No es lo que dice el P&L hoy.</b> Para referencia, el P&L del modelo jul-26 da <b>−1.34% en 2026</b> (ese año no hubo venta de cartera, la contribución fue negativa) y <b>2.27% en 2027</b> a premio de titularización de 3.5%. El 4.5% equivale a un premio de ~5.3%, entre el 3.5% que usa el P&L y el 6.89% que reclama la escalera de unit economics — y el P&L solo alcanza 4.5% de forma natural entre 2029 y 2030. Es la única línea del tablero con un margen puesto a mano en vez de medido, y está marcada en su tooltip. El crecimiento se referencia al de HabiCredit <b>solo en 2026</b> (base naciente); 2027 usa el real (+663%), que excede el eje (máx +125%) y por eso la bola queda pegada al borde derecho, marcada con «»». <b>MM MX e Inmo MX INCLUYEN el attach de HC100/Inmo100</b> — y por eso <b>no se recalibran contra el P&L por línea de BET</b>, que no se lo atribuye a esas líneas; hacerlo les quitaría el margen de financiación sobre la venta y subestimaría el negocio. Lo mismo aplica a MM CO, Inmo CO y HabiCredit, que se dejan como estaban (financiación sobre la venta), validado en el P&L "Margen HC 100": 4.42% neto/GMV por casa financiada × penetración ~68% → ~3% blended MM, ~3.5% Inmo. Antes ese margen no se le acreditaba al negocio. GTV: base hoja Platform GTV; 2027 = proyección (tasas BLT esc.3). <b>Tasa:</b> el <b>default del tablero es tasa VARIABLE</b> (cada año a su tasa promedio), por decisión explícita. La opción de tasa constante 3,600 COP / 18.5 MXN sigue disponible y es la que aísla el efecto FX: si lo que se quiere es comparar crecimiento real entre años, esa es la vista correcta, porque a tasa variable el movimiento cambiario se mezcla con el desempeño operativo (MM CO 2026 pasa de −13% real a +15% aparente). Los datos de origen vienen a 3,900 COP y se re-expresan en ambos modos; el modo variable re-expresa cada año a su tasa promedio (COP 4,326 / 4,072 / 4,180 / 3,175 · MXN 17.74 / 18.33 / 19.30 / 17.30, fuente pestaña FX del Sheet Platform GTV, 2026 = spot real 6-ago-26; 2027 sostiene el spot de 2026 porque no hay forecast de FX). Ojo: a tasa variable el crecimiento mezcla volumen real con movimiento cambiario — MM CO 2026 pasa de −13% real a +15% aparente por la apreciación del peso.';
+document.getElementById('assump').innerHTML='<b>Tamaño = margen de contribución (US$M).</b> MM: contribución de BET/ISIBOT, con toggle antes/después de gastos financieros (línea roja punteada = 0; burbuja con borde rojo = contribución negativa). Capital-light (Inmo, HabiCredit, Pulppo): contribución ≈ margen bruto (casi sin costos directos). <b>Inmo CO e Inmo MX 2027 = crecimiento +100% de GTV</b> (CO $50.3M→$100.6M, MX $31.1M→$62.2M), que combina franquicias y crecimiento propio. Los márgenes ya <b>no</b> se mantienen planos: <b>Inmo MX va a 7.00%</b> (objetivo del plan de Red Habi, partiendo del 4.99% medido en 2026) e <b>Inmo CO queda en 2.34%</b>, por debajo del 2.81% que se proyectaba antes, porque la mitad de ese crecimiento entra por franquicia y ahí Habi retiene <b>1 de 5 puntos</b> de comisión (0.92% contra 2.81%). El efecto neto de duplicar Inmo sobre el resultado 2027 es de apenas <b>+$0.3M</b>: Colombia agrega volumen y lo devuelve en comisión diluida. Crecer por franquicia compra volumen y capacidad instalada, no margen del año — el margen llega cuando madura el attach de crédito, que hoy se contabiliza en HabiCredit y HabiCapital y no en Inmo. El puente completo, año por año hasta 2030, está en la pestaña <b>Red Habi</b>. <b>Vivienda Nueva ya no es estimada:</b> su margen sale del BLT (filas R445/R448/R456) — la constructora paga 3.02% de comisión sobre el GMV, de lo cual 2.00% se va en comisión externa a brokers, dejando <b>1.02% de gross margin</b>. Antes esta línea llevaba 2.50% inventado, dos veces y media más. Descontando también la comisión interna de ventas (0.165%) quedaría en 0.85%. ⚠️ <b>HabiCapital lleva un margen NORMATIVO de 4.5% del GMV en 2026 y 2027</b>, puesto por decisión explícita: es el margen de <b>estado consolidado</b> del negocio, el que se espera una vez maduro con la titularización recurrente y seguros/servicing corriendo a escala. <b>No es lo que dice el P&L hoy.</b> Para referencia, el P&L del modelo jul-26 da <b>−1.34% en 2026</b> (ese año no hubo venta de cartera, la contribución fue negativa) y <b>2.27% en 2027</b> a premio de titularización de 3.5%. El 4.5% equivale a un premio de ~5.3%, entre el 3.5% que usa el P&L y el 6.89% que reclama la escalera de unit economics — y el P&L solo alcanza 4.5% de forma natural entre 2029 y 2030. Es la única línea del tablero con un margen puesto a mano en vez de medido, y está marcada en su tooltip. El crecimiento se referencia al de HabiCredit <b>solo en 2026</b> (base naciente); 2027 usa el real (+663%), que excede el eje (máx +125%) y por eso la bola queda pegada al borde derecho, marcada con «»». <b>MM MX e Inmo MX INCLUYEN el attach de HC100/Inmo100</b> — y por eso <b>no se recalibran contra el P&L por línea de BET</b>, que no se lo atribuye a esas líneas; hacerlo les quitaría el margen de financiación sobre la venta y subestimaría el negocio. Lo mismo aplica a MM CO, Inmo CO y HabiCredit, que se dejan como estaban (financiación sobre la venta), validado en el P&L "Margen HC 100": 4.42% neto/GMV por casa financiada × penetración ~68% → ~3% blended MM, ~3.5% Inmo. Antes ese margen no se le acreditaba al negocio. GTV: base hoja Platform GTV; 2027 = proyección (tasas BLT esc.3). <b>Tasa:</b> el <b>default del tablero es tasa VARIABLE</b> (cada año a su tasa promedio), por decisión explícita. La opción de tasa constante 3,100 COP / 17.0 MXN sigue disponible y es la que aísla el efecto FX: si lo que se quiere es comparar crecimiento real entre años, esa es la vista correcta, porque a tasa variable el movimiento cambiario se mezcla con el desempeño operativo (MM CO 2026 pasa de −13% real a +15% aparente). Los datos de origen vienen a 3,900 COP y se re-expresan en ambos modos; el modo variable re-expresa cada año a su tasa promedio (COP 4,326 / 4,072 / 4,180 / 3,175 · MXN 17.74 / 18.33 / 19.30 / 17.30, fuente pestaña FX del Sheet Platform GTV, 2026 = spot real 6-ago-26; 2027 sostiene el spot de 2026 porque no hay forecast de FX). Ojo: a tasa variable el crecimiento mezcla volumen real con movimiento cambiario — MM CO 2026 pasa de −13% real a +15% aparente por la apreciación del peso.';
 // ================= VISTA JUNTA: líneas agrupadas =================
 // Agrupa los 8 negocios en 5 bloques para lectura de board. Los números son suma exacta
 // de las líneas de detalle — no hay supuestos nuevos, solo agregación.
@@ -2541,7 +2541,7 @@ function drawSens(){
   const tm=tc/tg*100;
   document.getElementById('sysub').textContent=SYEAR+(SYEAR===2027?'e':'')+' · '
     +(document.getElementById('postfin').checked?'MM después de gastos financieros':'⚠ MM antes de gastos financieros')
-    +' · tasa '+(fxVar()?'variable':'constante 3.600/18.5');
+    +' · tasa '+(fxVar()?'variable':'constante 3.100/17,0');
   // tabla resumen: cuanto aguanta cada uno con +1pp y cuantos pbs necesita para -30%
   let s='<thead><tr><th class="l">Producto</th><th class="l">País</th><th>GTV</th><th>Contrib.</th><th>Margen</th>'
    +'<th>Δ contrib. con +100 pbs</th><th>Uplift %</th><th>Caída que aguanta con +100 pbs</th><th>pbs para compensar −30%</th>'
@@ -3464,7 +3464,7 @@ const CN_MAP={mmco:['MM.co_gtv','MM.co_cm','MM.co_cm_pre','CO'],mmmx:['MM.mx_gtv
   habicredit:['Credito.hcr_orig','Credito.hcr_cm',null,'CO'],pulppo:['Red.pu_gtv','Red.pu_cm',null,'MX'],habicapital:['Credito.hcap_orig','Credito.hcap_cm',null,'CO'],vivnueva:['Red.vn_gtv','Red.vn_cm',null,'MX'],
   homeeq:['Credito.he_orig','Credito.he_cm',null,'CO'],brokermx:['Credito.mx_orig','Credito.mx_cm',null,'MX']};
 const CN_BLOCK_MEMBERS={bmm:['mmco','mmmx'],bcred:['habicredit','habicapital','homeeq','brokermx'],binmo:['inmoco','inmomx','pulppo'],bvn:['vivnueva']};
-function cnFxDisp(p,y){ if(!fxVar()) return FXCONST[p]; const r=FX[p]&&FX[p][y]; return r||(p==='CO'?3175:17.30); }
+function cnFxDisp(p,y){ if(y>=2027||!fxVar()) return FXCONST[p]; const r=FX[p]&&FX[p][y]; return r||(p==='CO'?3175:17.30); }
 function cnPlanLine(id,y,key){ const m=CN_MAP[id]; if(!m) return null; const d=P30.plan[String(y)]; if(!d) return null;
   const k=key==='g'?m[0]:((document.getElementById('postfin').checked||!m[2])?m[1]:m[2]); const v=d[k]; if(v==null) return null;
   const loc=m[3]==='CO'?v*3100:v*17; return loc/cnFxDisp(m[3],y); }
@@ -3679,7 +3679,7 @@ function drawCre(){
   document.getElementById('cnlg').innerHTML=cnAct().map(e=>`<span><i style="background:${e.color}"></i>${e.name}</span>`).join('');
   cnPanels(); cnStack('cncg','g'); cnTbl('cntg','g'); cnStack('cncc','c'); cnTbl('cntc','c');
   cnLines(); cnTblPct(); cnDecomp();
-  const fx=fxVar()?'variable por año (CO 4.072 · 4.180 · 3.175 · 3.175 / MX 18,33 · 19,30 · 17,30 · 17,30)':'constante (CO 3.600 / MX 18,5)';
+  const fx=fxVar()?'variable por año (CO 4.072 · 4.180 · 3.175 · 3.175 / MX 18,33 · 19,30 · 17,30 · 17,30)':'constante (CO 3.100 / MX 17,0)';
   document.getElementById('cnnote').innerHTML=
     `<b>Fuente y método.</b> Mismos datos y mismos accesores que la pestaña de detalle — no hay una segunda base de cifras: `
    +`esta pestaña llama a las mismas funciones de GTV y contribución, así que cualquier corrección de datos se refleja en las dos. `
@@ -3757,8 +3757,8 @@ const RH_COMP={
      {k:'c1',n:'Inmo MX · eficiencia transaccional',c:'#0E9DA8'},
      {k:'c2',n:'Inmo MX · attach nuevo (Infonavit, seguros)',c:'#8A6608'}],
 };
-const rhFc=()=>fxVar()?3900/3175:3900/3600;
-const rhFm=()=>fxVar()?18.5/17.30:1;
+const rhFc=()=>fxVar()?3900/3175:3900/3100;
+const rhFm=()=>fxVar()?18.5/17.30:18.5/17;
 const rhN=(v,d=1)=>v==null?'—':v.toLocaleString('es',{minimumFractionDigits:d,maximumFractionDigits:d});
 const RH_I26=()=>YRS.indexOf(2026);
 
@@ -5268,7 +5268,8 @@ function drawCred4(M){
 //             junta suma sus miembros, asi que va dentro de la linea de Pulppo)
 //   HabiCapital  se le suma Home Equity (lanzamiento 2027) y su GTV pasa a desembolsos totales
 //   HabiCredit   se fija desde el motor para que no vuelva a divergir
-function syncCapitulos(){
+function syncCapitulos(){ return; // 27-sep-2026: LINES 2027 = caso plan v2 (inject_capitulos); los motores de agosto ya no sobreescriben
+
   const i27=YRS.indexOf(2027);
   const d2=(disp,p)=>disp*FX[p][2027]/FXDATA[p];   // display (tasa del año) -> base de datos
   const K=rhConsol(), rCO=K.rows[1].co, rMX=K.rows[1].mx;

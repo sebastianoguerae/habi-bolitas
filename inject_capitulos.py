@@ -19,24 +19,28 @@ MAP = {"mmco": ("MM.co_gtv", "MM.co_cm_pre", "MM.co_cm", "CO"), "mmmx": ("MM.mx_
        "inmoco": ("Red.co_gtv", "Red.co_cm", "Red.co_cm", "CO"), "inmomx": ("Red.mx_gtv", "Red.mx_cm", "Red.mx_cm", "MX"),
        "habicredit": ("Credito.hcr_orig", "Credito.hcr_cm", "Credito.hcr_cm", "CO"), "pulppo": ("Red.pu_gtv", "Red.pu_cm", "Red.pu_cm", "MX"),
        "habicapital": ("Credito.hcap_orig", "Credito.hcap_cm", "Credito.hcap_cm", "CO"), "vivnueva": ("Red.vn_gtv", "Red.vn_cm", "Red.vn_cm", "MX")}
-def set_last(arr_src, val):
-    vals = arr_src.split(","); vals[-1] = f"{val:.2f}"; return ",".join(vals)
+def set_last(arr_src, val, val26=None):
+    vals = arr_src.split(","); vals[-1] = f"{val:.2f}"
+    if val26 is not None: vals[-2] = f"{val26:.2f}"
+    return ",".join(vals)
 for lid, (kg, kb, ka, pais) in MAP.items():
     i = s.index(f"{{id:'{lid}'"); j = s.index("},", i)
     ent = s[i:j]
-    def rep(field, val, ent=ent):
-        m = re.search(field + r":\[([^\]]*)\]", ent); return ent.replace(m.group(0), f"{field}:[{set_last(m.group(1), val)}]")
-    ent2 = rep("gtv", toApp(g("2027", kg), pais)); ent2 = rep("cb", toApp(g("2027", kb), pais), ent2); ent2 = rep("ca", toApp(g("2027", ka), pais), ent2)
+    def rep(field, val, ent=ent, val26=None):
+        m = re.search(field + r":\[([^\]]*)\]", ent); return ent.replace(m.group(0), f"{field}:[{set_last(m.group(1), val, val26)}]")
+    # 2026 y 2027 = caso plan v2 (2026 del modelo = BLT vivo 22-ago re-expresado a 3.100/17); así Detalle, Crecimiento y Plan 2030 cuadran
+    ent2 = rep("gtv", toApp(g("2027", kg), pais), val26=toApp(g("2026", kg), pais)); ent2 = rep("cb", toApp(g("2027", kb), pais), ent2, toApp(g("2026", kb), pais)); ent2 = rep("ca", toApp(g("2027", ka), pais), ent2, toApp(g("2026", ka), pais))
     s = s[:i] + ent2 + s[j:]
 # líneas nuevas (solo 2027 en LINES; el resto vive en Plan 2030 / Crecimiento)
 he27 = toApp(g("2027", "Credito.he_orig"), "CO"); hec27 = toApp(g("2027", "Credito.he_cm"), "CO")
 bm27 = toApp(g("2027", "Credito.mx_orig"), "MX"); bmc27 = toApp(g("2027", "Credito.mx_cm"), "MX")
+bm26 = toApp(g("2026", "Credito.mx_orig"), "MX"); bmc26 = toApp(g("2026", "Credito.mx_cm"), "MX")
 NEW = (f" {{id:'homeeq',name:'Home Equity',pais:'CO',cap:'light',role:'prioridad',color:'#D95926',dashed:true,\n"
        f"  // CASO PLAN v2 (27-sep-2026): originar y vender a 4 meses; 2027 = piloto. 2028-2030 en la pestaña Plan 2030.\n"
        f"  gtv:[null,null,null,null,{he27:.2f}], cb:[null,null,null,null,{hec27:.2f}], ca:[null,null,null,null,{hec27:.2f}]}},\n"
        f" {{id:'brokermx',name:'Broker MX (HabiCredit)',pais:'MX',cap:'light',role:'margen',color:'#0B7285',dashed:true,\n"
        f"  // CASO PLAN v2: crédito bancario gestionado por HabiCredit en México desde 2027 (600 créditos → 6.000 en 2030).\n"
-       f"  gtv:[null,null,null,null,{bm27:.2f}], cb:[null,null,null,null,{bmc27:.2f}], ca:[null,null,null,null,{bmc27:.2f}]}},\n")
+       f"  gtv:[null,null,null,{bm26:.2f},{bm27:.2f}], cb:[null,null,null,{bmc26:.2f},{bmc27:.2f}], ca:[null,null,null,{bmc26:.2f},{bmc27:.2f}]}},\n")
 i = s.index("{id:'vivnueva'"); j = s.index("},", i) + 2
 s = s[:j] + "\n" + NEW.rstrip("\n") + s[j:]
 s = s.replace("members:['habicredit','habicapital']", "members:['habicredit','habicapital','homeeq','brokermx']")
@@ -44,6 +48,29 @@ s = s.replace("members:['habicredit','habicapital']", "members:['habicredit','ha
 s = s.replace("const cnActive=()=>AGRUP()==='bloque'?BLOCKS:LINES.concat(CN_EXTRA);", "const cnActive=()=>AGRUP()==='bloque'?BLOCKS:LINES;")
 s = s.replace("const cnG=(e,k)=>CN_YY[k]>=2027?cnPlan(e,k,'g'):(e.extra?null:G(e,CN_I[k]));", "const cnG=(e,k)=>CN_YY[k]>=2027?cnPlan(e,k,'g'):G(e,CN_I[k]);")
 s = s.replace("const cnC=(e,k)=>CN_YY[k]>=2027?cnPlan(e,k,'c'):(e.extra?null:contrib(e,CN_I[k]));", "const cnC=(e,k)=>CN_YY[k]>=2027?cnPlan(e,k,'c'):contrib(e,CN_I[k]);")
+
+# ============================ CAPA 0 (27-sep-2026, revisión de consistencia) ============================
+# (a) Tasa constante de la casa = 3.100 / 17,0 (REGLAS.md) y es el default: así Detalle, Crecimiento y Plan 2030 muestran la misma cifra.
+# (b) Los años del caso plan (2027-2030) se muestran SIEMPRE a 3.100 / 17,0, también en modo variable (el plan no tiene pronóstico de FX).
+# (c) syncCapitulos() dejaba de sobreescribir LINES 2027 con los motores de agosto (Red Habi / Crédito): Detalle por línea mostraba 2027e viejo.
+FIX = [
+ ("const FXCONST={CO:3600,MX:18.5};", "const FXCONST={CO:3100,MX:17};"),
+ ('<input type="radio" name="fx" class="ffx" value="const"> Constante 3,600 / 18.5</label>', '<input type="radio" name="fx" class="ffx" value="const" checked> Constante 3,100 / 17.0 (caso plan, default)</label>'),
+ ('<input type="radio" name="fx" class="ffx" value="var" checked> Variable por año (default)</label>', '<input type="radio" name="fx" class="ffx" value="var"> Variable por año (2027-2030 siempre a 3,100 / 17.0)</label>'),
+ ("'Tasa CONSTANTE 3,600 COP / 18.5 MXN — aísla el efecto FX'", "'Tasa CONSTANTE 3,100 COP / 17.0 MXN — la del caso plan; aísla el efecto FX'"),
+ ("2027 = spot 2026)'", "2027-2030 = caso plan a 3,100 / 17.0)'"),
+ ("Tasa constante 3,600 COP / 18.5 MXN.'", "Tasa constante 3,100 COP / 17.0 MXN.'"),
+ ("'constante 3.600/18.5'", "'constante 3.100/17,0'"),
+ ("'constante (CO 3.600 / MX 18,5)'", "'constante (CO 3.100 / MX 17,0)'"),
+ ("La opción de tasa constante 3,600 COP / 18.5 MXN sigue disponible", "La opción de tasa constante 3,100 COP / 17.0 MXN sigue disponible"),
+ ("const rhFc=()=>fxVar()?3900/3175:3900/3600;", "const rhFc=()=>fxVar()?3900/3175:3900/3100;"),
+ ("const rhFm=()=>fxVar()?18.5/17.30:1;", "const rhFm=()=>fxVar()?18.5/17.30:18.5/17;"),
+ ("function cnFxDisp(p,y){ if(!fxVar()) return FXCONST[p];", "function cnFxDisp(p,y){ if(y>=2027||!fxVar()) return FXCONST[p];"),
+ ("const y=YRS[i], r=FX[p]&&FX[p][y];return r?FXDATA[p]/r:1;}", "const y=YRS[i]; if(y>=2027) return FXDATA[p]/FXCONST[p]; const r=FX[p]&&FX[p][y];return r?FXDATA[p]/r:1;}"),
+ ("function syncCapitulos(){", "function syncCapitulos(){ return; // 27-sep-2026: LINES 2027 = caso plan v2 (inject_capitulos); los motores de agosto ya no sobreescriben\n"),
+]
+for a, b in FIX:
+    assert a in s, ("no encontrado", a[:70]); s = s.replace(a, b, 1)
 
 # ============================ CAPA 2: bloques por capítulo ============================
 f0 = lambda v: f"{v:,.0f}"; f1 = lambda v: f"{v:,.1f}"; pc = lambda a, b: f"{100*a/b:.1f}%" if b else "—"
@@ -62,7 +89,7 @@ H = ["US$M"] + Y
 
 blocks = {}
 # --- Detalle por línea (sin jhead: aviso al inicio del pane)
-blocks["det"] = ('<div class="note" style="background:#FFF6E5;border-left:4px solid var(--amber);padding:8px 12px;margin:12px 2px"><b>2027 = caso plan del Modelo 2030 v2 (27-sep-2026)</b>, ya no el 2027e de agosto: cada línea toma su GTV y contribución 2027 del modelo por drivers, convertidos a la tasa de esta pestaña. Aparecen dos líneas nuevas desde 2027: <b>Home Equity</b> (piloto, se vende a 4 meses) y <b>Broker MX</b>. 2028-2030 viven en las pestañas «Plan 2030» y «Crecimiento por negocio».</div>')
+blocks["det"] = ('<div class="note" style="background:#FFF6E5;border-left:4px solid var(--amber);padding:8px 12px;margin:12px 2px"><b>2026 y 2027 = caso plan del Modelo 2030 v2 (27-sep-2026)</b>, ya no el 2026e/2027e de agosto: cada línea toma su GTV y contribución 2027 del modelo por drivers, convertidos a la tasa de esta pestaña. Aparecen dos líneas nuevas desde 2027: <b>Home Equity</b> (piloto, se vende a 4 meses) y <b>Broker MX</b>. 2028-2030 viven en las pestañas «Plan 2030» y «Crecimiento por negocio».</div>')
 # --- Red Habi
 red_rows = [row("GTV Inmo CO", "Red.co_gtv"), row("GTV Inmo MX", "Red.mx_gtv"), row("GTV Pulppo", "Red.pu_gtv"), row("GTV Vivienda Nueva (run-off)", "Red.vn_gtv"), row("GTV Red Habi", "Red.gtv", tot=True),
             rowv("Cierres Inmo CO", series("Red.co_cierres"), f0), rowv("Cierres Inmo MX", series("Red.mx_cierres"), f0), rowv("Cierres Pulppo", series("Red.pu_cierres"), f0),
