@@ -132,7 +132,7 @@ function p30kpis(){
 function p30draw(){
   const sc=document.querySelector('input[name=p30sc]:checked').value; const y=+document.getElementById('p30sl').value;
   document.getElementById('p30yl').textContent=y;
-  const W=960,H=470,L=80,R=30,T=30,B=50,pw=W-L-R,ph=H-T-B; const GX0=-10,GX1=110,MY0=0,MY1=14;
+  const W=960,H=470,L=80,R=30,T=30,B=50,pw=W-L-R,ph=H-T-B; const GX0=-10,GX1=110,MY0=0,MY1=16;
   const gx=g=>L+(Math.max(GX0,Math.min(GX1,g))-GX0)/(GX1-GX0)*pw, gy=m=>T+ph-(Math.max(MY0,Math.min(MY1,m))-MY0)/(MY1-MY0)*ph;
   let s='';
   for(let v=0;v<=MY1;v+=2){s+=`<line x1="${L}" x2="${W-R}" y1="${gy(v)}" y2="${gy(v)}" stroke="#EDE9F5"/><text x="${L-8}" y="${gy(v)+4}" text-anchor="end" font-size="10" fill="#8A8496">${v}%</text>`;}
@@ -143,7 +143,7 @@ function p30draw(){
     const r=Math.max(6,Math.sqrt(Math.max(b.cm,0.2))*7.5);
     const pgrv=(y-1>2026)?(()=>{const pp=p30biz(sc,y-2)[i];return pp.gtv?100*(p.gtv/pp.gtv-1):0;})():null;
     if(pgrv!==null){s+=`<circle cx="${gx(pgrv)}" cy="${gy(pm)}" r="5" fill="none" stroke="${b.color}" stroke-dasharray="2 2" opacity=".6"/><line x1="${gx(pgrv)}" y1="${gy(pm)}" x2="${gx(gr)}" y2="${gy(m)}" stroke="${b.color}" stroke-width="1.5" opacity=".6"/>`;}
-    s+=`<circle cx="${gx(gr)}" cy="${gy(m)}" r="${r}" fill="${b.color}" opacity=".82" ${b.cap?'stroke="#8A6608" stroke-width="3" stroke-dasharray="6 4"':'stroke="#fff" stroke-width="1.5"'}><title>${b.name} ${y}: GTV ${p30f0(b.gtv)} · CM ${p30f1(b.cm)} · ${m.toFixed(1)}% · crec ${gr.toFixed(0)}%</title></circle><text x="${gx(gr)}" y="${gy(m)-r-5}" text-anchor="middle" font-size="10" font-weight="800" fill="#191919">${b.name} · $${p30f1(b.cm)}M</text>`;});
+    s+=`<circle cx="${gx(gr)}" cy="${gy(m)}" r="${r}" fill="${b.color}" opacity=".82" ${b.cap?'stroke="#8A6608" stroke-width="3" stroke-dasharray="6 4"':'stroke="#fff" stroke-width="1.5"'}><title>${b.name} ${y}: GTV ${p30f0(b.gtv)} · CM ${p30f1(b.cm)} · ${m.toFixed(1)}% · crec ${gr.toFixed(0)}%</title></circle><text x="${gx(gr)}" y="${Math.max(T+12,gy(m)-r-5)}" text-anchor="middle" font-size="10" font-weight="800" fill="#191919">${b.name} · $${p30f1(b.cm)}M</text>`;});
   document.getElementById('p30svg').innerHTML=s;
   const d=P30[sc][String(y)];
   document.getElementById('p30note').innerHTML=`<b>${y} · ${sc==='plan'?'caso plan':'base'}:</b> GTV bruto ${p30f0(d['Consolidado.gtv_bruto'])} (neto ${p30f0(d['Consolidado.gtv_neto'])}) · CM after financing ${p30f1(d['Consolidado.cm_after_fin'])} (${p30pct(d['Consolidado.cm_after_fin'],d['Consolidado.gtv_bruto'])}) · EBTDA ${p30f1(d['Consolidado.ebtda'])} · caja ${p30f1(d['Caja.fin'])} · freno ${(100*d['Capital.freno']).toFixed(0)}%. Anillo dorado = capital-intensivo (MM y crédito de compra). Crédito de compra = HabiCredit CO + HabiCapital + broker MX, neto del attach que ya cuenta Red Habi.`;
