@@ -37,9 +37,9 @@ PANE = r'''<!-- P30 START -->
       <div><b>Home Equity se origina para vender a ~4 meses.</b> El comprador de cartera exige ~16%: premio de venta 9,9% del principal. Producto eficiente en capital, no de balance. Habi retiene servicing (0,5%/año) y seguros (1% upfront).</div>
       <div><b>Home Equity arranca despacio, acelera en 2028 y se mantiene acotado.</b> Piloto de ~300 créditos en 2027; penetración madura 15% (no 25%): 6 mil créditos en 2028, 14 mil en 2029, 20 mil en 2030 (US$440M).</div>
       <div><b>Una sola ronda de US$40M en 2027.</b> Al vender la cartera de los dos productos a los pocos meses, la segunda ronda (160 en 2028) deja de ser necesaria: el freno de capital queda en 100% todos los años. Broker México llega a 6 mil créditos.</div>
-      <div><b>HabiCapital crece ×1,5 del plan que vio BBVA</b> (898 de originación, ~15 mil hipotecas en 2030), con la misma escalera explícita que Home Equity: premio 5,5%, seguros 0,75%, servicing 0,3%/año, rotación 1,5 meses. Se bajó de ×2 para darle más peso a Red Habi.</div>
+      <div><b>HabiCapital crece ×1,35 del plan que vio BBVA</b> (808 de originación, ~14 mil hipotecas en 2030), con la misma escalera explícita que Home Equity: premio 5,5%, seguros 0,75%, servicing 0,3%/año, rotación 1,5 meses. Se bajó de ×2 en dos pasos para darle más peso a Red Habi.</div>
       <div><b>Vivienda Nueva no crece.</b> El negocio no interesa: run-off −15%/año (39 → 20 de GTV).</div>
-      <div><b>Red Habi crece antes que el crédito.</b> En 2027 Inmo CO acelera a +150% y Inmo MX a +200% (luego +100%/año); Pulppo +10%. Red pasa de US$388M a US$1.942M de GTV y de 4,8 a ~69 de margen con attach en 2030.</div>
+      <div><b>Red Habi crece antes que el crédito.</b> En 2027 Inmo CO acelera a +165% y Inmo MX a +220% (luego +110%/año); Pulppo +10%. Red pasa de US$388M a US$2.170M de GTV y de 4,8 a ~79 de margen con attach en 2030.</div>
       <div><b>Meta 2030:</b> GTV consolidado ~5.000 bruto y margen de contribución después de financieros &gt; 200; crédito ~3.000 de GTV y &gt; 100 de margen.</div>
     </div>
   </div>
@@ -64,7 +64,7 @@ PANE = r'''<!-- P30 START -->
   <div class="tblcard">
     <h2>4 · Crédito por fuente <span>originación US$M · margen US$M · # créditos</span></h2>
     <div class="tblscroll"><table id="p30t2" class="p30tbl"></table></div>
-    <div class="note">HabiCredit CO = canal abierto (+15%/año) + attach sobre MM e Inmo CO, margen 0,74% + 15 pbs de precio al banco. Broker MX desde 2027: 600 → 6.000 créditos. HabiCapital: ×1,5 del plan deck, escalera explícita (spread en tránsito + premio 5,5% + seguros 0,75% − costo de originación 1,17% + servicing 0,3% del libro administrado); el NPV 4,89% queda solo para valoración. Home Equity: base = casas vendidas + clientes HabiCredit + 5% de leads (134 mil hogares en 2030), penetración madura 15%, LTV 30% sobre casa de US$72K (ticket US$21,6K).</div>
+    <div class="note">HabiCredit CO = canal abierto (+15%/año) + attach sobre MM e Inmo CO, margen 0,74% + 15 pbs de precio al banco. Broker MX desde 2027: 600 → 6.000 créditos. HabiCapital: ×1,35 del plan deck, escalera explícita (spread en tránsito + premio 5,5% + seguros 0,75% − costo de originación 1,17% + servicing 0,3% del libro administrado); el NPV 4,89% queda solo para valoración. Home Equity: base = casas vendidas + clientes HabiCredit + 5% de leads (134 mil hogares en 2030), penetración madura 15%, LTV 30% sobre casa de US$72K (ticket US$21,6K).</div>
   </div>
 
   <div class="tblcard">
@@ -85,9 +85,9 @@ PANE = r'''<!-- P30 START -->
   <div class="tblcard">
     <h2>6 · Qué tiene que ser verdad, y qué no está medido</h2>
     <div class="p30dec" style="margin-top:10px">
-      <div class="p30warn"><b>Comprador de cartera de Home Equity al 16%</b> con forward flow y servicing retenido, sobre US$440M/año en 2030. Hoy no existe uno probado en Colombia. Sostiene ~53 de los 200 de margen.</div>
-      <div class="p30warn"><b>HabiCapital ×1,5 = ~15 mil hipotecas en 2030, ~16% de la vivienda usada financiada en Colombia, y 139% del mercado anual de titularización.</b> Sin vehículos propios y ventas bilaterales de cartera el número no existe.</div>
-      <div class="p30warn"><b>Inmo México ×24 en cuatro años</b> (467 → 11.200 cierres, +200% en 2027 y +100% después), Inmo CO +150% en 2027, y broker México de 100 a 6 mil créditos: es el supuesto de ejecución más exigente del caso.</div>
+      <div class="p30warn"><b>Comprador de cartera de Home Equity al 16%</b> con forward flow y servicing retenido, sobre US$440M/año en 2030. Hoy no existe uno probado en Colombia. Sostiene ~53 de los 205 de margen.</div>
+      <div class="p30warn"><b>HabiCapital ×1,35 = ~14 mil hipotecas en 2030, ~15% de la vivienda usada financiada en Colombia, y 125% del mercado anual de titularización.</b> Sin vehículos propios y ventas bilaterales de cartera el número no existe.</div>
+      <div class="p30warn"><b>Inmo México ×30 en cuatro años</b> (467 → 13.800 cierres, +220% en 2027 y +110% después), Inmo CO +165% en 2027, y broker México de 100 a 6 mil créditos: es el supuesto de ejecución más exigente del caso.</div>
       <div class="p30warn"><b>Home Equity acotado:</b> 134 mil hogares × 15% = 20 mil créditos en 2030, tres veces HabiCredit hoy. Nadie ha medido el mercado de libre inversión con garantía; la primera cosecha de 2027 calibra conversión y pérdida.</div>
       <div class="p30warn"><b>Ticket de HabiCredit:</b> US$62K en el modelo; el memo de julio dice 259M COP (US$83K). Cambia el GTV de crédito en 30%.</div>
       <div class="p30warn"><b>2027 queda en −1,6 de EBTDA y la caja mínima es 45 en 2027-28</b> con la ronda de 40 adentro. El OPEX de crédito (US$100 por crédito + 0,3% del libro administrado) ya está contado.</div>
@@ -97,7 +97,7 @@ PANE = r'''<!-- P30 START -->
   <div class="tblcard">
     <h2>7 · Conciliación 2030 <span>este caso plan contra las versiones anteriores · US$M</span></h2>
     <div class="tblscroll"><table class="p30tbl"><thead><tr><th class="l">Versión</th><th>GTV bruto</th><th>CM after fin.</th><th>EBTDA</th><th>Ronda</th><th>Nota</th></tr></thead><tbody>
-      <tr><td class="l"><b>Caso plan balanceado v2 (27-sep)</b></td><td><b>5.347</b></td><td><b>200</b></td><td><b>141</b></td><td>40 (2027)</td><td class="l">HabiCapital ×1,5 con escalera, Red acelerada desde 2027, HE 15% vendido a 4 meses, MX 6k, VN run-off, OPEX de crédito, impuestos en caja</td></tr>
+      <tr><td class="l"><b>Caso plan balanceado v2 (27-sep)</b></td><td><b>5.501</b></td><td><b>205</b></td><td><b>146</b></td><td>40 (2027)</td><td class="l">HabiCapital ×1,35 con escalera, Red acelerada desde 2027, HE 15% vendido a 4 meses, MX 6k, VN run-off, OPEX de crédito, impuestos en caja</td></tr>
       <tr><td class="l">Caso plan anterior (HE 25%, HabiCapital ×1)</td><td>4.809</td><td>202</td><td>141</td><td>40 (2027)</td><td class="l">Home Equity 34 mil créditos: volumen juzgado exagerado</td></tr>
       <tr><td class="l">Base v2 (defaults, sin ronda)</td><td>3.563</td><td>92</td><td>42</td><td>0</td><td class="l">HE retenido, freno de capital al 15%</td></tr>
       <tr><td class="l">Paquete v11 base (24-ago, BBVA)</td><td>3.758</td><td>150</td><td>96</td><td>0</td><td class="l">serie v7 = reparto del total, no drivers; financieros dentro de MM</td></tr>
