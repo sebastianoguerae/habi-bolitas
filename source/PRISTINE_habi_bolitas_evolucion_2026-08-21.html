@@ -23,7 +23,7 @@ header p{margin-top:6px;font-size:12.5px;color:#E4D7FA;max-width:880px}
 /* --- pestaña «Crecimiento por negocio» · todo con prefijo cn para no colisionar --- */
 .mini{background:none;border:1px solid #DCD2F0;color:var(--pur);border-radius:7px;padding:3px 9px;font-family:inherit;font-weight:700;font-size:11px;cursor:pointer}
 .mini:hover{background:var(--lav)}
-.cngrid{grid-template-columns:repeat(auto-fill,minmax(300px,1fr));display:grid;grid-template-columns:repeat(auto-fill,minmax(288px,1fr));gap:13px;margin-top:11px}
+.cngrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(288px,1fr));gap:13px;margin-top:11px}
 .cnpan{border:1px solid #EFEBF7;border-radius:12px;padding:12px 13px 10px;background:#fff}
 .cnpan h3{font-size:12.5px;font-weight:900;color:var(--txt);display:flex;align-items:center;gap:7px}
 .cnpan h3 i{width:11px;height:11px;border-radius:3px;flex:none}
@@ -159,12 +159,10 @@ table.smat tr.sneed td{background:var(--lav);border-top:2px solid #DED4F2;font-w
 <div class="wrap">
 <header>
   <h1>Habi — Evolución por negocio · tamaño = margen de contribución</h1>
-  <p style="margin-top:4px;font-size:12px;color:#FFD166;font-weight:700">Actualizado 27-sep-2026 con el caso plan del Modelo 2030 v2: 2027 de todas las líneas = caso plan; cada capítulo trae su bloque «Caso plan 2030» con las cifras nuevas; los motores de sliders de Red Habi, Crédito, Modelo 2030 y Caja son los de agosto y quedan como referencia.</p>
   <p>Play para ver el movimiento. <b>X = crecimiento del GTV (YoY) · Y = margen de contribución por transacción (% del GTV) · tamaño de bola = contribución absoluta (US$M)</b>. Anillo dorado = capital-intensivo. MM se reporta <b>después de gastos financieros</b> (interés del warehouse) por defecto — el toggle rojo lo desactiva para ver la vista pre-financieros, que hay que etiquetar como tal. Switch de <b>tasa constante vs. variable</b> (a tasa variable el FX se mezcla con el crecimiento real). 2027 = proyección. Abajo, el reparto del margen de contribución y la vista agregada MM vs. nuevos negocios.</p>
 </header>
 
 <div class="tabs">
-  <button class="tab" id="tab-p30" aria-selected="false">Plan 2030</button>
   <button class="tab" id="tab-det" aria-selected="true">Detalle por línea</button>
   <button class="tab" id="tab-cre" aria-selected="false">Crecimiento por negocio</button>
   <button class="tab" id="tab-red" aria-selected="false">Red Habi</button>
@@ -185,8 +183,6 @@ table.smat tr.sneed td{background:var(--lav);border-top:2px solid #DED4F2;font-w
     y el único capital-intensivo. Acá está <b>qué le pasó al margen</b> —medido, línea por línea, contra el
     P&amp;L transaccional— <b>por qué se comporta como cash cow</b>, y qué pasa cuando se le pide crecer 10% al año.</p>
   </div>
-<div class="tblcard" style="border:2px solid var(--bright)"><h2>Caso plan 2030 · Market Maker <span>casas × ticket × margen · plano en 2027, +10%/año desde 2028</span></h2><div class="tblscroll"><table class="p30tbl"><thead><tr><th class="l">US$M</th><th>2026</th><th>2027</th><th>2028</th><th>2029</th><th>2030</th></tr></thead><tbody><tr><td class="l">Casas vendidas CO</td><td>2,229</td><td>2,229</td><td>2,452</td><td>2,697</td><td>2,967</td></tr><tr><td class="l">Casas vendidas MX</td><td>1,140</td><td>1,140</td><td>1,254</td><td>1,379</td><td>1,517</td></tr><tr><td class="l">GTV MM CO</td><td>137</td><td>137</td><td>151</td><td>166</td><td>183</td></tr><tr><td class="l">GTV MM MX</td><td>88</td><td>88</td><td>97</td><td>107</td><td>118</td></tr><tr><td class="l">CM pre intereses CO</td><td>17.3</td><td>18.7</td><td>21.1</td><td>23.3</td><td>25.6</td></tr><tr><td class="l">CM pre intereses MX</td><td>9.4</td><td>10.2</td><td>11.7</td><td>12.8</td><td>14.1</td></tr><tr><td class="l">Interés del warehouse (serie BLT)</td><td>6.2</td><td>5.8</td><td>6.2</td><td>6.8</td><td>7.5</td></tr><tr class="tot"><td class="l">CM post intereses MM</td><td>20.5</td><td>23.0</td><td>26.6</td><td>29.3</td><td>32.2</td></tr><tr><td class="l">Margen post intereses / GTV</td><td>9.1%</td><td>10.2%</td><td>10.7%</td><td>10.7%</td><td>10.7%</td></tr></tbody></table></div><div class="note"><b>Fuente:</b> Modelo 2030 v2, caso plan decidido el 27-sep-2026 (FX constante 3.100 / 17,0; MM después de intereses). Coincide con la tesis de este capítulo (cash cow, +10% desde 2028 se autofinancia). Cambios: interés del warehouse con la serie del BLT (CO 1,2% del GTV, MX 4,7→4,5%) en vez del tracker; margen pre intereses CO 12,6→14,0% y MX 10,6→12,0%; volumen 2027 plano a run-rate real (2.229 casas CO, 1.140 MX), no el del presupuesto.</div></div>
-
 
   <div class="rhhero">
     <h3>La tesis en un párrafo</h3>
@@ -332,167 +328,6 @@ table.smat tr.sneed td{background:var(--lav);border-top:2px solid #DED4F2;font-w
   <div class="tblcard"><div class="note" id="cmpnote" style="border:0;padding:0;margin:0"></div></div>
 </div>
 
-<!-- P30 START -->
-<style>
-.p30kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px;margin-top:14px}
-.p30k{background:#fff;border-radius:12px;padding:12px 14px;box-shadow:0 4px 18px rgba(75,26,139,.08)}
-.p30k b{display:block;font-size:22px;font-weight:900;color:var(--pur)}.p30k small{color:var(--gray);font-size:10.5px;display:block;margin-top:2px}.p30k i{color:#8A8496;font-size:10px;font-style:normal}
-.p30dec{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:10px}
-.p30dec div{background:#fff;border-left:4px solid var(--bright);border-radius:0 10px 10px 0;padding:10px 12px;font-size:12px;line-height:1.5;box-shadow:0 4px 18px rgba(75,26,139,.06)}
-.p30dec div b{color:var(--pur)}
-.p30warn{background:#FFF6E5;border-left:4px solid var(--amber)}
-.p30tbl td.neg{color:var(--red)}
-</style>
-<div id="pane-p30" style="display:none">
-  <div class="jhead">
-    <h2>Plan 2030 · caso plan del Modelo 2030 v2 <span style="font-size:11px;font-weight:600;color:#E4D7FA">· 27-sep-2026</span></h2>
-    <p>Reemplaza a las proyecciones 2027-2030 de las otras pestañas. Construido por drivers (casas × ticket × margen, cierres × take por canal, originación × economía por fuente) con FX constante 3.100 / 17,0, MM después de intereses, GTV bruto y neto, y un módulo de capital que frena el crédito cuando falta equity. Las decisiones tomadas hoy están abajo; los supuestos que todavía no tienen dato, también. Modelo: <b>leon/habi-plan-2030/08_modelo_2030_v2/Modelo_2030_v2.xlsx</b>.</p>
-  </div>
-  <div class="p30kpis" id="p30kpis"></div>
-
-  <div class="tblcard">
-    <h2>1 · Decisiones tomadas por Sebastián Noguera <span>27-sep-2026</span></h2>
-    <div class="p30dec" style="margin-top:10px">
-      <div><b>Home Equity se origina para vender a ~4 meses.</b> El comprador de cartera exige ~16%: premio de venta 9,9% del principal. Producto eficiente en capital, no de balance. Habi retiene servicing (0,5%/año) y seguros (1% upfront).</div>
-      <div><b>Home Equity arranca despacio, acelera en 2028 y se mantiene acotado.</b> Piloto de ~300 créditos en 2027; penetración madura 15% (no 25%): 6 mil créditos en 2028, 14 mil en 2029, 20 mil en 2030 (US$440M).</div>
-      <div><b>Una sola ronda de US$40M en 2027.</b> Al vender la cartera de los dos productos a los pocos meses, la segunda ronda (160 en 2028) deja de ser necesaria: el freno de capital queda en 100% todos los años. Broker México llega a 6 mil créditos.</div>
-      <div><b>HabiCapital crece más que el plan que vio BBVA: ×2</b> (1.197 de originación y 20 mil hipotecas en 2030), con la misma escalera explícita que Home Equity: premio de venta 5,5%, seguros 0,75%, servicing 0,3%/año, rotación 1,5 meses. Es el activo que el mercado ya sabe comprar.</div>
-      <div><b>Vivienda Nueva no crece.</b> El negocio no interesa: run-off −15%/año (39 → 20 de GTV).</div>
-      <div><b>Meta 2030:</b> GTV consolidado ~5.000 bruto y margen de contribución después de financieros &gt; 200; crédito ~3.000 de GTV y &gt; 100 de margen.</div>
-    </div>
-  </div>
-
-  <div class="tblcard">
-    <h2>2 · Evolución por negocio <span>X = crecimiento del GTV · Y = margen de contribución % · tamaño = contribución US$M · anillo = año anterior</span></h2>
-    <div class="controls" style="box-shadow:none;padding:10px 0 0;margin:0">
-      <div class="yearrow"><span class="yearbig" id="p30yl">2027</span><button class="btn" id="p30play">▶ Play</button><input type="range" id="p30sl" min="2027" max="2030" step="1" value="2027"></div>
-      <div class="filters" style="margin-top:8px;padding-top:8px"><div class="fgroup"><b>Escenario</b>
-        <label><input type="radio" name="p30sc" value="plan" checked> Caso plan</label>
-        <label><input type="radio" name="p30sc" value="base"> Base (defaults, sin ronda)</label></div></div>
-    </div>
-    <div class="tblscroll"><svg viewBox="0 0 960 470" id="p30svg"></svg></div>
-    <div class="note" id="p30note"></div>
-  </div>
-
-  <div class="tblcard">
-    <h2>3 · GTV y margen de contribución 2026-2030 <span>US$M · caso plan</span></h2>
-    <div class="tblscroll"><table id="p30t1" class="p30tbl"></table></div>
-  </div>
-
-  <div class="tblcard">
-    <h2>4 · Crédito por fuente <span>originación US$M · margen US$M · # créditos</span></h2>
-    <div class="tblscroll"><table id="p30t2" class="p30tbl"></table></div>
-    <div class="note">HabiCredit CO = canal abierto (+15%/año) + attach sobre MM e Inmo CO, margen 0,74% + 15 pbs de precio al banco. Broker MX desde 2027: 600 → 6.000 créditos. HabiCapital: ×2 del plan deck, escalera explícita (spread en tránsito + premio 5,5% + seguros 0,75% − costo de originación 1,17% + servicing 0,3% del libro administrado); el NPV 4,89% queda solo para valoración. Home Equity: base = casas vendidas + clientes HabiCredit + 5% de leads (134 mil hogares en 2030), penetración madura 15%, LTV 30% sobre casa de US$72K (ticket US$21,6K).</div>
-  </div>
-
-  <div class="tblcard">
-    <h2>5 · Home Equity · economía por cada US$100 originados <span>tres modos; el plan usa "vender a 4 meses"</span></h2>
-    <div class="tblscroll"><table class="p30tbl"><thead><tr><th class="l">Peldaño</th><th>Retenido 8 años</th><th>Vender a 4 meses (plan)</th><th>Broker puro</th></tr></thead><tbody>
-      <tr><td class="l">Margen de interés / spread</td><td>4,3% anual sobre saldo (5,5% − 1,2% pérdida)</td><td>+1,4 (4 meses, neto de pérdida)</td><td>—</td></tr>
-      <tr><td class="l">Premio de venta</td><td>—</td><td><b>+9,9</b> (cliente 19% vs comprador 16% × duración 3,3)</td><td>+2,0 (take)</td></tr>
-      <tr><td class="l">Seguros upfront</td><td>no modelado</td><td>+1,0</td><td>—</td></tr>
-      <tr><td class="l">Servicing retenido</td><td>incluido en el spread</td><td>+2,2 nominal (0,5%/año × vida 4,5)</td><td>—</td></tr>
-      <tr><td class="l">Costo comercial</td><td>−0,75</td><td>−0,75</td><td>−0,75</td></tr>
-      <tr class="tot"><td class="l">Total</td><td>~19 nominal · ~14 en VP</td><td><b>~13,8 · el 85% en el año 1</b></td><td>1,25</td></tr>
-      <tr><td class="l">Capital por unidad</td><td>20 durante años</td><td>5 durante 4 meses</td><td>0</td></tr>
-      <tr><td class="l">CM 2030 (penetración 15%)</td><td>~27 (con freno)</td><td><b>54,1</b></td><td>~5</td></tr>
-    </tbody></table></div>
-    <div class="note">El premio es el supuesto crítico en los dos productos: en Home Equity cada punto son ~4,4 US$M de margen en 2030; en HabiCapital, ~12. HabiCapital y Home Equity corren con la misma mecánica (originar, tener pocos meses, vender, administrar); difieren en producto, comprador (titularización vs venta bilateral) y premio.</div>
-  </div>
-
-  <div class="tblcard">
-    <h2>6 · Qué tiene que ser verdad, y qué no está medido</h2>
-    <div class="p30dec" style="margin-top:10px">
-      <div class="p30warn"><b>Comprador de cartera de Home Equity al 16%</b> con forward flow y servicing retenido, sobre US$440M/año en 2030. Hoy no existe uno probado en Colombia. Sostiene 54 de los 201 de margen.</div>
-      <div class="p30warn"><b>HabiCapital ×2 = 20 mil hipotecas en 2030, ~22% de la vivienda usada financiada en Colombia, y 186% del mercado anual de titularización.</b> Sin vehículos propios y ventas bilaterales de cartera el número no existe. Es el supuesto más exigente del caso.</div>
-      <div class="p30warn"><b>Inmo México ×16 en cuatro años</b> (467 → 7.500 cierres) y broker México de 100 a 6 mil créditos (5% de la banca): cero años de evidencia de esa pendiente.</div>
-      <div class="p30warn"><b>Home Equity acotado:</b> 134 mil hogares × 15% = 20 mil créditos en 2030, tres veces HabiCredit hoy. Nadie ha medido el mercado de libre inversión con garantía; la primera cosecha de 2027 calibra conversión y pérdida.</div>
-      <div class="p30warn"><b>Ticket de HabiCredit:</b> US$62K en el modelo; el memo de julio dice 259M COP (US$83K). Cambia el GTV de crédito en 30%.</div>
-      <div class="p30warn"><b>2027 queda en −1,7 de EBTDA y la caja mínima es 44 en 2027-28</b> con la ronda de 40 adentro. El OPEX de crédito (US$100 por crédito + 0,3% del libro administrado) ya está contado.</div>
-    </div>
-  </div>
-
-  <div class="tblcard">
-    <h2>7 · Conciliación 2030 <span>este caso plan contra las versiones anteriores · US$M</span></h2>
-    <div class="tblscroll"><table class="p30tbl"><thead><tr><th class="l">Versión</th><th>GTV bruto</th><th>CM after fin.</th><th>EBTDA</th><th>Ronda</th><th>Nota</th></tr></thead><tbody>
-      <tr><td class="l"><b>Caso plan balanceado v2 (27-sep)</b></td><td><b>5.114</b></td><td><b>201</b></td><td><b>138</b></td><td>40 (2027)</td><td class="l">HabiCapital ×2 con escalera, HE 15% vendido a 4 meses, MX 6k, VN run-off, OPEX de crédito, impuestos en caja</td></tr>
-      <tr><td class="l">Caso plan anterior (HE 25%, HabiCapital ×1)</td><td>4.809</td><td>202</td><td>141</td><td>40 (2027)</td><td class="l">Home Equity 34 mil créditos: volumen juzgado exagerado</td></tr>
-      <tr><td class="l">Base v2 (defaults, sin ronda)</td><td>3.563</td><td>92</td><td>42</td><td>0</td><td class="l">HE retenido, freno de capital al 15%</td></tr>
-      <tr><td class="l">Paquete v11 base (24-ago, BBVA)</td><td>3.758</td><td>150</td><td>96</td><td>0</td><td class="l">serie v7 = reparto del total, no drivers; financieros dentro de MM</td></tr>
-      <tr><td class="l">Paquete v11 con ronda</td><td>4.607</td><td>188</td><td>133</td><td>20-40</td><td class="l">unlock +30% MM / +40% crédito</td></tr>
-      <tr><td class="l">Este aplicativo, Modelo 2030 (16-ago)</td><td>3.341</td><td>111</td><td>66</td><td>0</td><td class="l">FX 3.175, OPEX 35,7, sumado desde las líneas</td></tr>
-    </tbody></table></div>
-  </div>
-</div>
-<script>
-const P30={"plan": {"2025": {"Caja.fin": 0.0, "Caja.impuestos": 0.0, "Capital.eq_disp": 0.0, "Capital.eq_req": 41.023, "Capital.freno": 1.0, "Capital.ronda": 0.0, "Capital.titul_pct": 0.001, "Consolidado.cm_after_fin": 14.764, "Consolidado.ebitda": -20.854, "Consolidado.ebtda": -37.436, "Consolidado.fin_corp": 7.4, "Consolidado.gtv_bruto": 1043.583, "Consolidado.gtv_neto": 911.572, "Credito.cm": 3.232, "Credito.co_attach_cm": 0.132, "Credito.gtv": 440.036, "Credito.hcap_cm": -0.018, "Credito.hcap_libro_admin": 0.9, "Credito.hcap_loans": 20.69, "Credito.hcap_orig": 0.9, "Credito.hcr_cm": 3.145, "Credito.hcr_loans": 6672.47, "Credito.hcr_orig": 425.036, "Credito.he_cm": 0.0, "Credito.he_libro_vendido": 0.0, "Credito.he_loans": 0.0, "Credito.he_orig": 0.0, "Credito.he_saldo": 0.0, "Credito.loans": 6793.16, "Credito.mx_cm": 0.104, "Credito.mx_loans": 100.0, "Credito.mx_orig": 14.1, "MM.cm": 14.535, "MM.co_casas": 2779.0, "MM.co_cm": 14.942, "MM.co_cm_pre": 17.518, "MM.co_gtv": 171.742, "MM.co_int": 2.576, "MM.gtv": 273.374, "MM.mx_casas": 1499.0, "MM.mx_cm": -0.407, "MM.mx_cm_pre": 6.2, "MM.mx_gtv": 101.632, "MM.mx_int": 6.606, "OPEX.cred_total": 0.0, "OPEX.estructura": 52.2, "OPEX.total": 52.2, "Red.cm": 3.897, "Red.co_cierres": 623.0, "Red.co_cm": 0.902, "Red.co_gtv": 42.364, "Red.gtv": 330.172, "Red.memo_cm_con_attach": 4.029, "Red.mx_cierres": 214.0, "Red.mx_cm": 0.544, "Red.mx_gtv": 15.108, "Red.pu_cierres": 2100.0, "Red.pu_cm": 1.918, "Red.pu_gtv": 220.5, "Red.vn_cm": 0.532, "Red.vn_gtv": 52.2}, "2026": {"Caja.fin": 18.0, "Caja.impuestos": 0.0, "Capital.eq_disp": 0.0, "Capital.eq_req": 34.057, "Capital.freno": 1.0, "Capital.ronda": 0.0, "Capital.titul_pct": 0.017, "Consolidado.cm_after_fin": 23.782, "Consolidado.ebitda": -16.365, "Consolidado.ebtda": -27.918, "Consolidado.fin_corp": 5.4, "Consolidado.gtv_bruto": 1123.909, "Consolidado.gtv_neto": 982.407, "Credito.cm": 3.259, "Credito.co_attach_cm": 0.196, "Credito.gtv": 471.672, "Credito.hcap_cm": -0.149, "Credito.hcap_libro_admin": 11.91, "Credito.hcap_loans": 232.704, "Credito.hcap_orig": 11.1, "Credito.hcr_cm": 3.304, "Credito.hcr_loans": 7201.168, "Credito.hcr_orig": 446.472, "Credito.he_cm": 0.0, "Credito.he_libro_vendido": 0.0, "Credito.he_loans": 0.0, "Credito.he_orig": 0.0, "Credito.he_saldo": 0.0, "Credito.loans": 7533.872, "Credito.mx_cm": 0.104, "Credito.mx_loans": 100.0, "Credito.mx_orig": 14.1, "MM.cm": 20.512, "MM.co_casas": 2229.0, "MM.co_cm": 15.653, "MM.co_cm_pre": 17.301, "MM.co_gtv": 137.306, "MM.co_int": 1.648, "MM.gtv": 225.656, "MM.mx_casas": 1140.0, "MM.mx_cm": 4.859, "MM.mx_cm_pre": 9.365, "MM.mx_gtv": 88.35, "MM.mx_int": 4.506, "OPEX.cred_total": 0.0, "OPEX.estructura": 51.7, "OPEX.total": 51.7, "Red.cm": 5.01, "Red.co_cierres": 897.0, "Red.co_cm": 1.337, "Red.co_gtv": 62.79, "Red.gtv": 426.58, "Red.memo_cm_con_attach": 5.206, "Red.mx_cierres": 467.0, "Red.mx_cm": 1.642, "Red.mx_gtv": 32.97, "Red.pu_cierres": 2680.0, "Red.pu_cm": 1.636, "Red.pu_gtv": 292.12, "Red.vn_cm": 0.395, "Red.vn_gtv": 38.7}, "2027": {"Caja.fin": 43.973, "Caja.impuestos": -0.0, "Capital.eq_disp": 45.0, "Capital.eq_req": 37.424, "Capital.freno": 1.0, "Capital.ronda": 40.0, "Capital.titul_pct": 0.263, "Consolidado.cm_after_fin": 40.658, "Consolidado.ebitda": 10.141, "Consolidado.ebtda": -1.66, "Consolidado.fin_corp": 6.0, "Consolidado.gtv_bruto": 1554.012, "Consolidado.gtv_neto": 1316.626, "Credito.cm": 14.927, "Credito.co_attach_cm": 0.726, "Credito.gtv": 797.214, "Credito.hcap_cm": 9.222, "Credito.hcap_libro_admin": 180.319, "Credito.hcap_loans": 3286.822, "Credito.hcap_orig": 169.6, "Credito.hcr_cm": 4.377, "Credito.hcr_loans": 8662.665, "Credito.hcr_orig": 537.085, "Credito.he_cm": 0.702, "Credito.he_libro_vendido": 5.929, "Credito.he_loans": 274.48, "Credito.he_orig": 5.929, "Credito.he_saldo": 0.0, "Credito.loans": 12823.966, "Credito.mx_cm": 0.626, "Credito.mx_loans": 600.0, "Credito.mx_orig": 84.6, "MM.cm": 23.034, "MM.co_casas": 2229.0, "MM.co_cm": 17.026, "MM.co_cm_pre": 18.674, "MM.co_gtv": 137.306, "MM.co_int": 1.648, "MM.gtv": 225.656, "MM.mx_casas": 1140.0, "MM.mx_cm": 6.008, "MM.mx_cm_pre": 10.16, "MM.mx_gtv": 88.35, "MM.mx_int": 4.152, "OPEX.cred_total": 1.118, "OPEX.estructura": 41.2, "OPEX.total": 42.318, "Red.cm": 8.397, "Red.co_cierres": 1794.0, "Red.co_cm": 2.295, "Red.co_gtv": 125.58, "Red.gtv": 531.141, "Red.memo_cm_con_attach": 9.123, "Red.mx_cierres": 934.0, "Red.mx_cm": 3.283, "Red.mx_gtv": 65.94, "Red.pu_cierres": 2814.0, "Red.pu_cm": 2.484, "Red.pu_gtv": 306.726, "Red.vn_cm": 0.336, "Red.vn_gtv": 32.895}, "2028": {"Caja.fin": 45.73, "Caja.impuestos": -11.578, "Capital.eq_disp": 45.0, "Capital.eq_req": 54.174, "Capital.freno": 1.0, "Capital.ronda": 0.0, "Capital.titul_pct": 0.667, "Consolidado.cm_after_fin": 82.325, "Consolidado.ebitda": 47.571, "Consolidado.ebtda": 35.085, "Consolidado.fin_corp": 6.3, "Consolidado.gtv_bruto": 2448.379, "Consolidado.gtv_neto": 2048.185, "Credito.cm": 47.262, "Credito.co_attach_cm": 2.497, "Credito.gtv": 1467.093, "Credito.hcap_cm": 23.82, "Credito.hcap_libro_admin": 592.487, "Credito.hcap_loans": 7981.447, "Credito.hcap_orig": 430.2, "Credito.hcr_cm": 5.785, "Credito.hcr_loans": 10483.545, "Credito.hcr_orig": 649.98, "Credito.he_cm": 15.78, "Credito.he_libro_vendido": 138.301, "Credito.he_loans": 6162.658, "Credito.he_orig": 133.113, "Credito.he_saldo": 0.0, "Credito.loans": 26427.65, "Credito.mx_cm": 1.878, "Credito.mx_loans": 1800.0, "Credito.mx_orig": 253.8, "MM.cm": 26.622, "MM.co_casas": 2451.9, "MM.co_cm": 19.333, "MM.co_cm_pre": 21.145, "MM.co_gtv": 151.037, "MM.co_int": 1.812, "MM.gtv": 248.222, "MM.mx_casas": 1254.0, "MM.mx_cm": 7.289, "MM.mx_cm_pre": 11.662, "MM.mx_gtv": 97.185, "MM.mx_int": 4.373, "OPEX.cred_total": 4.112, "OPEX.estructura": 43.128, "OPEX.total": 47.24, "Red.cm": 14.441, "Red.co_cierres": 3588.0, "Red.co_cm": 3.739, "Red.co_gtv": 251.16, "Red.gtv": 733.064, "Red.memo_cm_con_attach": 16.938, "Red.mx_cierres": 1868.0, "Red.mx_cm": 7.003, "Red.mx_gtv": 131.881, "Red.pu_cierres": 2954.7, "Red.pu_cm": 3.414, "Red.pu_gtv": 322.062, "Red.vn_cm": 0.285, "Red.vn_gtv": 27.961}, "2029": {"Caja.fin": 74.818, "Caja.impuestos": -27.636, "Capital.eq_disp": 62.543, "Capital.eq_req": 76.195, "Capital.freno": 1.0, "Capital.ronda": 0.0, "Capital.titul_pct": 1.194, "Consolidado.cm_after_fin": 137.813, "Consolidado.ebitda": 97.149, "Consolidado.ebtda": 83.744, "Consolidado.fin_corp": 6.6, "Consolidado.gtv_bruto": 3654.361, "Consolidado.gtv_neto": 3041.799, "Credito.cm": 91.536, "Credito.co_attach_cm": 5.947, "Credito.gtv": 2353.767, "Credito.hcap_cm": 43.425, "Credito.hcap_libro_admin": 1303.638, "Credito.hcap_loans": 13757.143, "Credito.hcap_orig": 770.4, "Credito.hcr_cm": 6.798, "Credito.hcr_loans": 12320.508, "Credito.hcr_orig": 763.871, "Credito.he_cm": 37.556, "Credito.he_libro_vendido": 432.909, "Credito.he_loans": 14439.606, "Credito.he_orig": 311.895, "Credito.he_saldo": 0.0, "Credito.loans": 44117.257, "Credito.mx_cm": 3.756, "Credito.mx_loans": 3600.0, "Credito.mx_orig": 507.6, "MM.cm": 29.284, "MM.co_casas": 2697.09, "MM.co_cm": 21.266, "MM.co_cm_pre": 23.26, "MM.co_gtv": 166.141, "MM.co_int": 1.994, "MM.gtv": 273.044, "MM.mx_casas": 1379.4, "MM.mx_cm": 8.018, "MM.mx_cm_pre": 12.828, "MM.mx_gtv": 106.903, "MM.mx_int": 4.811, "OPEX.cred_total": 8.898, "OPEX.estructura": 45.171, "OPEX.total": 54.069, "Red.cm": 23.293, "Red.co_cierres": 5740.8, "Red.co_cm": 5.496, "Red.co_gtv": 401.856, "Red.gtv": 1027.55, "Red.memo_cm_con_attach": 29.24, "Red.mx_cierres": 3736.0, "Red.mx_cm": 13.125, "Red.mx_gtv": 263.762, "Red.pu_cierres": 3102.435, "Red.pu_cm": 4.43, "Red.pu_gtv": 338.165, "Red.vn_cm": 0.242, "Red.vn_gtv": 23.767}, "2030": {"Caja.fin": 141.939, "Caja.impuestos": -45.68, "Capital.eq_disp": 104.415, "Capital.eq_req": 96.819, "Capital.freno": 1.0, "Capital.ronda": 0.0, "Capital.titul_pct": 1.856, "Consolidado.cm_after_fin": 200.69, "Consolidado.ebitda": 152.81, "Consolidado.ebtda": 138.426, "Consolidado.fin_corp": 6.9, "Consolidado.gtv_bruto": 5114.127, "Consolidado.gtv_neto": 4241.533, "Credito.cm": 136.61, "Credito.co_attach_cm": 11.73, "Credito.gtv": 3348.382, "Credito.hcap_cm": 68.585, "Credito.hcap_libro_admin": 2370.675, "Credito.hcap_loans": 20538.593, "Credito.hcap_orig": 1197.4, "Credito.hcr_cm": 7.701, "Credito.hcr_loans": 13955.611, "Credito.hcr_orig": 865.248, "Credito.he_cm": 54.064, "Credito.he_libro_vendido": 818.529, "Credito.he_loans": 20358.053, "Credito.he_orig": 439.734, "Credito.he_saldo": 0.0, "Credito.loans": 60852.258, "Credito.mx_cm": 6.26, "Credito.mx_loans": 6000.0, "Credito.mx_orig": 846.0, "MM.cm": 32.212, "MM.co_casas": 2966.799, "MM.co_cm": 23.393, "MM.co_cm_pre": 25.586, "MM.co_gtv": 182.755, "MM.co_int": 2.193, "MM.gtv": 300.349, "MM.mx_casas": 1517.34, "MM.mx_cm": 8.82, "MM.mx_cm_pre": 14.111, "MM.mx_gtv": 117.594, "MM.mx_int": 5.292, "OPEX.cred_total": 14.929, "OPEX.estructura": 47.335, "OPEX.total": 62.265, "Red.cm": 38.468, "Red.co_cierres": 8037.12, "Red.co_cm": 7.354, "Red.co_gtv": 562.598, "Red.gtv": 1465.397, "Red.memo_cm_con_attach": 50.198, "Red.mx_cierres": 7472.0, "Red.mx_cm": 25.369, "Red.mx_gtv": 527.523, "Red.pu_cierres": 3257.557, "Red.pu_cm": 5.539, "Red.pu_gtv": 355.074, "Red.vn_cm": 0.206, "Red.vn_gtv": 20.202}}, "base": {"2025": {"Caja.fin": 0.0, "Caja.impuestos": 0.0, "Capital.eq_disp": 0.0, "Capital.eq_req": 41.04, "Capital.freno": 1.0, "Capital.ronda": 0.0, "Capital.titul_pct": 0.001, "Consolidado.cm_after_fin": 14.764, "Consolidado.ebitda": -20.854, "Consolidado.ebtda": -37.436, "Consolidado.fin_corp": 7.4, "Consolidado.gtv_bruto": 1043.583, "Consolidado.gtv_neto": 911.572, "Credito.cm": 3.232, "Credito.co_attach_cm": 0.132, "Credito.gtv": 440.036, "Credito.hcap_cm": -0.018, "Credito.hcap_libro_admin": 0.9, "Credito.hcap_loans": 20.69, "Credito.hcap_orig": 0.9, "Credito.hcr_cm": 3.145, "Credito.hcr_loans": 6672.47, "Credito.hcr_orig": 425.036, "Credito.he_cm": 0.0, "Credito.he_libro_vendido": 0.0, "Credito.he_loans": 0.0, "Credito.he_orig": 0.0, "Credito.he_saldo": 0.0, "Credito.loans": 6793.16, "Credito.mx_cm": 0.104, "Credito.mx_loans": 100.0, "Credito.mx_orig": 14.1, "MM.cm": 14.535, "MM.co_casas": 2779.0, "MM.co_cm": 14.942, "MM.co_cm_pre": 17.518, "MM.co_gtv": 171.742, "MM.co_int": 2.576, "MM.gtv": 273.374, "MM.mx_casas": 1499.0, "MM.mx_cm": -0.407, "MM.mx_cm_pre": 6.2, "MM.mx_gtv": 101.632, "MM.mx_int": 6.606, "OPEX.cred_total": 0.0, "OPEX.estructura": 52.2, "OPEX.total": 52.2, "Red.cm": 3.897, "Red.co_cierres": 623.0, "Red.co_cm": 0.902, "Red.co_gtv": 42.364, "Red.gtv": 330.172, "Red.memo_cm_con_attach": 4.029, "Red.mx_cierres": 214.0, "Red.mx_cm": 0.544, "Red.mx_gtv": 15.108, "Red.pu_cierres": 2100.0, "Red.pu_cm": 1.918, "Red.pu_gtv": 220.5, "Red.vn_cm": 0.532, "Red.vn_gtv": 52.2}, "2026": {"Caja.fin": 18.0, "Caja.impuestos": 0.0, "Capital.eq_disp": 0.0, "Capital.eq_req": 34.265, "Capital.freno": 1.0, "Capital.ronda": 0.0, "Capital.titul_pct": 0.017, "Consolidado.cm_after_fin": 23.782, "Consolidado.ebitda": -16.365, "Consolidado.ebtda": -27.918, "Consolidado.fin_corp": 5.4, "Consolidado.gtv_bruto": 1123.909, "Consolidado.gtv_neto": 982.407, "Credito.cm": 3.259, "Credito.co_attach_cm": 0.196, "Credito.gtv": 471.672, "Credito.hcap_cm": -0.149, "Credito.hcap_libro_admin": 11.91, "Credito.hcap_loans": 232.704, "Credito.hcap_orig": 11.1, "Credito.hcr_cm": 3.304, "Credito.hcr_loans": 7201.168, "Credito.hcr_orig": 446.472, "Credito.he_cm": 0.0, "Credito.he_libro_vendido": 0.0, "Credito.he_loans": 0.0, "Credito.he_orig": 0.0, "Credito.he_saldo": 0.0, "Credito.loans": 7533.872, "Credito.mx_cm": 0.104, "Credito.mx_loans": 100.0, "Credito.mx_orig": 14.1, "MM.cm": 20.512, "MM.co_casas": 2229.0, "MM.co_cm": 15.653, "MM.co_cm_pre": 17.301, "MM.co_gtv": 137.306, "MM.co_int": 1.648, "MM.gtv": 225.656, "MM.mx_casas": 1140.0, "MM.mx_cm": 4.859, "MM.mx_cm_pre": 9.365, "MM.mx_gtv": 88.35, "MM.mx_int": 4.506, "OPEX.cred_total": 0.0, "OPEX.estructura": 51.7, "OPEX.total": 51.7, "Red.cm": 5.01, "Red.co_cierres": 897.0, "Red.co_cm": 1.337, "Red.co_gtv": 62.79, "Red.gtv": 426.58, "Red.memo_cm_con_attach": 5.206, "Red.mx_cierres": 467.0, "Red.mx_cm": 1.642, "Red.mx_gtv": 32.97, "Red.pu_cierres": 2680.0, "Red.pu_cm": 1.636, "Red.pu_gtv": 292.12, "Red.vn_cm": 0.395, "Red.vn_gtv": 38.7}, "2027": {"Caja.fin": -1.323, "Caja.impuestos": -0.0, "Capital.eq_disp": 5.0, "Capital.eq_req": 37.547, "Capital.freno": 1.0, "Capital.ronda": 0.0, "Capital.titul_pct": 0.131, "Consolidado.cm_after_fin": 34.77, "Consolidado.ebitda": 4.759, "Consolidado.ebtda": -7.041, "Consolidado.fin_corp": 6.0, "Consolidado.gtv_bruto": 1386.55, "Consolidado.gtv_neto": 1199.984, "Credito.cm": 8.777, "Credito.co_attach_cm": 0.711, "Credito.gtv": 624.477, "Credito.hcap_cm": 4.363, "Credito.hcap_libro_admin": 95.519, "Credito.hcap_loans": 1643.411, "Credito.hcap_orig": 84.8, "Credito.hcr_cm": 4.377, "Credito.hcr_loans": 8662.665, "Credito.hcr_orig": 537.085, "Credito.he_cm": 0.036, "Credito.he_libro_vendido": 0.0, "Credito.he_loans": 179.98, "Credito.he_orig": 2.592, "Credito.he_saldo": 2.592, "Credito.loans": 10486.056, "Credito.mx_cm": 0.0, "Credito.mx_loans": 0.0, "Credito.mx_orig": 0.0, "MM.cm": 23.034, "MM.co_casas": 2229.0, "MM.co_cm": 17.026, "MM.co_cm_pre": 18.674, "MM.co_gtv": 137.306, "MM.co_int": 1.648, "MM.gtv": 225.656, "MM.mx_casas": 1140.0, "MM.mx_cm": 6.008, "MM.mx_cm_pre": 10.16, "MM.mx_gtv": 88.35, "MM.mx_int": 4.152, "OPEX.cred_total": 0.612, "OPEX.estructura": 41.2, "OPEX.total": 41.812, "Red.cm": 8.66, "Red.co_cierres": 1794.0, "Red.co_cm": 2.295, "Red.co_gtv": 125.58, "Red.gtv": 536.417, "Red.memo_cm_con_attach": 9.371, "Red.mx_cierres": 1008.72, "Red.mx_cm": 3.545, "Red.mx_gtv": 71.216, "Red.pu_cierres": 2814.0, "Red.pu_cm": 2.484, "Red.pu_gtv": 306.726, "Red.vn_cm": 0.336, "Red.vn_gtv": 32.895}, "2028": {"Caja.fin": -9.574, "Caja.impuestos": -0.875, "Capital.eq_disp": 5.0, "Capital.eq_req": 42.575, "Capital.freno": 0.247, "Capital.ronda": 0.0, "Capital.titul_pct": 0.082, "Consolidado.cm_after_fin": 46.872, "Consolidado.ebitda": 15.139, "Consolidado.ebtda": 2.653, "Consolidado.fin_corp": 6.3, "Consolidado.gtv_bruto": 1932.366, "Consolidado.gtv_neto": 1657.965, "Credito.cm": 10.644, "Credito.co_attach_cm": 2.52, "Credito.gtv": 929.135, "Credito.hcap_cm": 2.988, "Credito.hcap_libro_admin": 139.156, "Credito.hcap_loans": 986.813, "Credito.hcap_orig": 53.189, "Credito.hcr_cm": 5.785, "Credito.hcr_loans": 10483.545, "Credito.hcr_orig": 649.98, "Credito.he_cm": 0.307, "Credito.he_libro_vendido": 0.0, "Credito.he_loans": 1004.601, "Credito.he_orig": 14.466, "Credito.he_saldo": 16.734, "Credito.loans": 13974.96, "Credito.mx_cm": 1.565, "Credito.mx_loans": 1500.0, "Credito.mx_orig": 211.5, "MM.cm": 26.622, "MM.co_casas": 2451.9, "MM.co_cm": 19.333, "MM.co_cm_pre": 21.145, "MM.co_gtv": 151.037, "MM.co_int": 1.812, "MM.gtv": 248.222, "MM.mx_casas": 1254.0, "MM.mx_cm": 7.289, "MM.mx_cm_pre": 11.662, "MM.mx_gtv": 97.185, "MM.mx_int": 4.373, "OPEX.cred_total": 1.092, "OPEX.estructura": 43.128, "OPEX.total": 44.22, "Red.cm": 15.606, "Red.co_cierres": 3588.0, "Red.co_cm": 3.739, "Red.co_gtv": 251.16, "Red.gtv": 755.009, "Red.memo_cm_con_attach": 18.127, "Red.mx_cierres": 2178.835, "Red.mx_cm": 8.168, "Red.mx_gtv": 153.826, "Red.pu_cierres": 2954.7, "Red.pu_cm": 3.414, "Red.pu_gtv": 322.062, "Red.vn_cm": 0.285, "Red.vn_gtv": 27.961}, "2029": {"Caja.fin": -9.839, "Caja.impuestos": -5.469, "Capital.eq_disp": 6.326, "Capital.eq_req": 48.943, "Capital.freno": 0.119, "Capital.ronda": 0.0, "Capital.titul_pct": 0.071, "Consolidado.cm_after_fin": 63.264, "Consolidado.ebitda": 29.978, "Consolidado.ebtda": 16.573, "Consolidado.fin_corp": 6.6, "Consolidado.gtv_bruto": 2618.577, "Consolidado.gtv_neto": 2248.737, "Credito.cm": 13.578, "Credito.co_attach_cm": 6.224, "Credito.gtv": 1249.481, "Credito.hcap_cm": 2.741, "Credito.hcap_libro_admin": 171.17, "Credito.hcap_loans": 820.169, "Credito.hcap_orig": 45.929, "Credito.hcr_cm": 6.798, "Credito.hcr_loans": 12320.508, "Credito.hcr_orig": 763.871, "Credito.he_cm": 0.908, "Credito.he_libro_vendido": 0.0, "Credito.he_loans": 1158.325, "Credito.he_orig": 16.68, "Credito.he_saldo": 31.322, "Credito.loans": 17299.002, "Credito.mx_cm": 3.13, "Credito.mx_loans": 3000.0, "Credito.mx_orig": 423.0, "MM.cm": 29.284, "MM.co_casas": 2697.09, "MM.co_cm": 21.266, "MM.co_cm_pre": 23.26, "MM.co_gtv": 166.141, "MM.co_int": 1.994, "MM.gtv": 273.044, "MM.mx_casas": 1379.4, "MM.mx_cm": 8.018, "MM.mx_cm_pre": 12.828, "MM.mx_gtv": 106.903, "MM.mx_int": 4.811, "OPEX.cred_total": 1.52, "OPEX.estructura": 45.171, "OPEX.total": 46.691, "Red.cm": 26.702, "Red.co_cierres": 5740.8, "Red.co_cm": 5.496, "Red.co_gtv": 401.856, "Red.gtv": 1096.052, "Red.memo_cm_con_attach": 32.926, "Red.mx_cierres": 4706.284, "Red.mx_cm": 16.533, "Red.mx_gtv": 332.264, "Red.pu_cierres": 3102.435, "Red.pu_cm": 4.43, "Red.pu_gtv": 338.165, "Red.vn_cm": 0.242, "Red.vn_gtv": 23.767}, "2030": {"Caja.fin": 2.778, "Caja.impuestos": -14.143, "Capital.eq_disp": 14.613, "Capital.eq_req": 60.042, "Capital.freno": 0.151, "Capital.ronda": 0.0, "Capital.titul_pct": 0.14, "Consolidado.cm_after_fin": 92.418, "Consolidado.ebitda": 57.244, "Consolidado.ebtda": 42.859, "Consolidado.fin_corp": 6.9, "Consolidado.gtv_bruto": 3576.694, "Consolidado.gtv_neto": 3099.635, "Credito.cm": 19.192, "Credito.co_attach_cm": 11.579, "Credito.gtv": 1620.782, "Credito.hcap_cm": 5.105, "Credito.hcap_libro_admin": 244.504, "Credito.hcap_loans": 1551.47, "Credito.hcap_orig": 90.451, "Credito.hcr_cm": 7.701, "Credito.hcr_loans": 13955.611, "Credito.hcr_orig": 865.248, "Credito.he_cm": 1.691, "Credito.he_libro_vendido": 0.0, "Credito.he_loans": 2123.87, "Credito.he_orig": 30.584, "Credito.he_saldo": 57.991, "Credito.loans": 22130.952, "Credito.mx_cm": 4.695, "Credito.mx_loans": 4500.0, "Credito.mx_orig": 634.5, "MM.cm": 32.212, "MM.co_casas": 2966.799, "MM.co_cm": 23.393, "MM.co_cm_pre": 25.586, "MM.co_gtv": 182.755, "MM.co_int": 2.193, "MM.gtv": 300.349, "MM.mx_casas": 1517.34, "MM.mx_cm": 8.82, "MM.mx_cm_pre": 14.111, "MM.mx_gtv": 117.594, "MM.mx_int": 5.292, "OPEX.cred_total": 2.223, "OPEX.estructura": 47.335, "OPEX.total": 49.558, "Red.cm": 47.613, "Red.co_cierres": 8037.12, "Red.co_cm": 7.354, "Red.co_gtv": 562.598, "Red.gtv": 1655.563, "Red.memo_cm_con_attach": 59.192, "Red.mx_cierres": 10165.574, "Red.mx_cm": 34.514, "Red.mx_gtv": 717.689, "Red.pu_cierres": 3257.557, "Red.pu_cm": 5.539, "Red.pu_gtv": 355.074, "Red.vn_cm": 0.206, "Red.vn_gtv": 20.202}}};
-const P30Y=[2026,2027,2028,2029,2030];
-const p30g=(sc,y,k)=>P30[sc][String(y)][k];
-const p30f0=v=>v.toLocaleString('en-US',{maximumFractionDigits:0});
-const p30f1=v=>v.toLocaleString('en-US',{minimumFractionDigits:1,maximumFractionDigits:1});
-const p30pct=(a,b)=>b?(100*a/b).toFixed(1)+'%':'—';
-function p30biz(sc,y){
-  const d=P30[sc][String(y)];
-  const credOrigCompra=d['Credito.hcr_orig']+d['Credito.hcap_orig']+d['Credito.mx_orig'];
-  const credCmCompra=d['Credito.hcr_cm']+d['Credito.hcap_cm']+d['Credito.mx_cm'];
-  return [
-   {id:'mm',name:'Market Maker',color:'#6B21C8',gtv:d['MM.gtv'],cm:d['MM.cm'],cap:1},
-   {id:'red',name:'Red Habi',color:'#146B3A',gtv:d['Red.gtv'],cm:d['Red.memo_cm_con_attach'],cap:0},
-   {id:'cred',name:'Crédito de compra',color:'#0E9DA8',gtv:credOrigCompra,cm:credCmCompra-d['Credito.co_attach_cm'],cap:1},
-   {id:'he',name:'Home Equity',color:'#C43E7A',gtv:d['Credito.he_orig'],cm:d['Credito.he_cm'],cap:0}];
-}
-function p30kpis(){
-  const sc=document.querySelector('input[name=p30sc]:checked').value; const d=P30[sc]['2030'], d6=P30[sc]['2026'];
-  const items=[[p30f0(d['Consolidado.gtv_bruto']),'GTV bruto 2030','neto '+p30f0(d['Consolidado.gtv_neto'])],[p30f1(d['Consolidado.cm_after_fin']),'CM after financing 2030',p30pct(d['Consolidado.cm_after_fin'],d['Consolidado.gtv_bruto'])+' del bruto'],
-    [p30f1(d['Consolidado.ebtda']),'EBTDA 2030','2027: '+p30f1(P30[sc]['2027']['Consolidado.ebtda'])],[p30f0(d['Credito.gtv']),'GTV crédito 2030','CM '+p30f1(d['Credito.cm'])],
-    [p30f0(d['Credito.he_orig']),'Home Equity originación 2030','CM '+p30f1(d['Credito.he_cm'])+' · '+p30f0(d['Credito.he_loans'])+' créditos'],[p30f1(d['Caja.fin']),'Caja fin 2030','mín. '+p30f1(Math.min(...P30Y.slice(1).map(y=>p30g(sc,y,'Caja.fin'))))],
-    [(100*d['Capital.freno']).toFixed(0)+'%','Freno de capital 2030','titularización '+(100*d['Capital.titul_pct']).toFixed(0)+'% del mercado CO'],[p30f1(d['OPEX.total']),'OPEX 2030','de los cuales crédito '+p30f1(d['OPEX.cred_total'])]];
-  document.getElementById('p30kpis').innerHTML=items.map(([v,l,s])=>`<div class="p30k"><b>${v}</b><small>${l}</small><i>${s}</i></div>`).join('');
-}
-function p30draw(){
-  const sc=document.querySelector('input[name=p30sc]:checked').value; const y=+document.getElementById('p30sl').value;
-  document.getElementById('p30yl').textContent=y;
-  const W=960,H=470,L=80,R=30,T=30,B=50,pw=W-L-R,ph=H-T-B; const GX0=-10,GX1=110,MY0=0,MY1=16;
-  const gx=g=>L+(Math.max(GX0,Math.min(GX1,g))-GX0)/(GX1-GX0)*pw, gy=m=>T+ph-(Math.max(MY0,Math.min(MY1,m))-MY0)/(MY1-MY0)*ph;
-  let s='';
-  for(let v=0;v<=MY1;v+=2){s+=`<line x1="${L}" x2="${W-R}" y1="${gy(v)}" y2="${gy(v)}" stroke="#EDE9F5"/><text x="${L-8}" y="${gy(v)+4}" text-anchor="end" font-size="10" fill="#8A8496">${v}%</text>`;}
-  for(let g=0;g<=GX1;g+=20){s+=`<line y1="${T}" y2="${T+ph}" x1="${gx(g)}" x2="${gx(g)}" stroke="#EDE9F5"/><text y="${T+ph+16}" x="${gx(g)}" text-anchor="middle" font-size="10" fill="#8A8496">+${g}%</text>`;}
-  s+=`<line x1="${gx(0)}" x2="${gx(0)}" y1="${T}" y2="${T+ph}" stroke="#B8B2CC"/><text x="${(L+W-R)/2}" y="${H-8}" text-anchor="middle" font-size="11" font-weight="800" fill="#4B1A8B">CRECIMIENTO DEL GTV (YoY) →</text><text transform="rotate(-90 18 ${T+ph/2})" x="18" y="${T+ph/2}" text-anchor="middle" font-size="11" font-weight="800" fill="#4B1A8B">MARGEN DE CONTRIBUCIÓN % GTV →</text>`;
-  const cur=p30biz(sc,y), prev=p30biz(sc,y-1);
-  cur.forEach((b,i)=>{const p=prev[i]; const gr=p.gtv?100*(b.gtv/p.gtv-1):0, m=b.gtv?100*b.cm/b.gtv:0, pm=p.gtv?100*p.cm/p.gtv:0, pgr=0;
-    const r=Math.max(6,Math.sqrt(Math.max(b.cm,0.2))*7.5);
-    const pgrv=(y-1>2026)?(()=>{const pp=p30biz(sc,y-2)[i];return pp.gtv?100*(p.gtv/pp.gtv-1):0;})():null;
-    if(pgrv!==null){s+=`<circle cx="${gx(pgrv)}" cy="${gy(pm)}" r="5" fill="none" stroke="${b.color}" stroke-dasharray="2 2" opacity=".6"/><line x1="${gx(pgrv)}" y1="${gy(pm)}" x2="${gx(gr)}" y2="${gy(m)}" stroke="${b.color}" stroke-width="1.5" opacity=".6"/>`;}
-    s+=`<circle cx="${gx(gr)}" cy="${gy(m)}" r="${r}" fill="${b.color}" opacity=".82" ${b.cap?'stroke="#8A6608" stroke-width="3" stroke-dasharray="6 4"':'stroke="#fff" stroke-width="1.5"'}><title>${b.name} ${y}: GTV ${p30f0(b.gtv)} · CM ${p30f1(b.cm)} · ${m.toFixed(1)}% · crec ${gr.toFixed(0)}%</title></circle><text x="${gx(gr)}" y="${Math.max(T+12,gy(m)-r-5)}" text-anchor="middle" font-size="10" font-weight="800" fill="#191919">${b.name} · $${p30f1(b.cm)}M</text>`;});
-  document.getElementById('p30svg').innerHTML=s;
-  const d=P30[sc][String(y)];
-  document.getElementById('p30note').innerHTML=`<b>${y} · ${sc==='plan'?'caso plan':'base'}:</b> GTV bruto ${p30f0(d['Consolidado.gtv_bruto'])} (neto ${p30f0(d['Consolidado.gtv_neto'])}) · CM after financing ${p30f1(d['Consolidado.cm_after_fin'])} (${p30pct(d['Consolidado.cm_after_fin'],d['Consolidado.gtv_bruto'])}) · EBTDA ${p30f1(d['Consolidado.ebtda'])} · caja ${p30f1(d['Caja.fin'])} · freno ${(100*d['Capital.freno']).toFixed(0)}%. Anillo dorado = capital-intensivo (MM y crédito de compra). Crédito de compra = HabiCredit CO + HabiCapital + broker MX, neto del attach que ya cuenta Red Habi.`;
-}
-function p30tables(){
-  const sc='plan'; const th=`<thead><tr><th class="l">US$M</th>${P30Y.map(y=>`<th>${y}</th>`).join('')}</tr></thead>`;
-  const rows=[['GTV bruto','Consolidado.gtv_bruto',0,1],['  Market Maker','MM.gtv',0],['  Red Habi (Inmo CO + Inmo MX + Pulppo + VN)','Red.gtv',0],['  Crédito','Credito.gtv',0],['GTV neto (solape 30% sobre crédito de compra)','Consolidado.gtv_neto',0],
-    ['CM after financing','Consolidado.cm_after_fin',1,1],['  Market Maker (post intereses)','MM.cm',1],['  Red Habi (con attach de crédito)','Red.memo_cm_con_attach',1],['  Crédito (neto del attach)',null,1],['  Financieros corporativos','Consolidado.fin_corp',1,0,-1],
-    ['CM % del GTV bruto',null,'pct'],['OPEX estructura','OPEX.estructura',1],['OPEX de crédito (escala con volumen)','OPEX.cred_total',1],['EBTDA','Consolidado.ebtda',1,1],['Caja fin de año','Caja.fin',1],['Freno de capital',null,'freno'],['% mercado titularización CO',null,'titul']];
-  let b='';
-  rows.forEach(([lab,k,dec,tot,sign])=>{const cells=P30Y.map(y=>{const d=P30[sc][String(y)];let v;
-    if(lab.startsWith('  Crédito (neto'))v=d['Credito.cm']-d['Credito.co_attach_cm'];else if(dec==='pct')v=100*d['Consolidado.cm_after_fin']/d['Consolidado.gtv_bruto'];else if(dec==='freno')v=100*d['Capital.freno'];else if(dec==='titul')v=100*d['Capital.titul_pct'];else v=d[k]*(sign||1);
-    const txt=(dec==='pct'||dec==='freno'||dec==='titul')?v.toFixed(dec==='pct'?2:0)+'%':(dec===1?p30f1(v):p30f0(v));return `<td class="${v<0?'neg':''}">${txt}</td>`;}).join('');
-    b+=`<tr class="${tot?'tot':''}"><td class="l">${lab}</td>${cells}</tr>`;});
-  document.getElementById('p30t1').innerHTML=th+'<tbody>'+b+'</tbody>';
-  const r2=[['HabiCredit CO · originación','Credito.hcr_orig',0],['HabiCredit CO · margen','Credito.hcr_cm',1],['HabiCredit CO · créditos','Credito.hcr_loans',0],['HabiCapital · originación','Credito.hcap_orig',0],['HabiCapital · margen contable','Credito.hcap_cm',1],['HabiCapital · créditos','Credito.hcap_loans',0],['Broker MX · originación','Credito.mx_orig',0],['Broker MX · margen','Credito.mx_cm',1],['Broker MX · créditos','Credito.mx_loans',0],['Home Equity · originación','Credito.he_orig',0],['Home Equity · margen','Credito.he_cm',1],['Home Equity · créditos','Credito.he_loans',0],['Home Equity · libro vendido que Habi administra','Credito.he_libro_vendido',0],['TOTAL crédito · originación','Credito.gtv',0,1],['TOTAL crédito · margen','Credito.cm',1,1],['TOTAL crédito · take',null,'pct'],['TOTAL créditos','Credito.loans',0,1]];
-  let c='';
-  r2.forEach(([lab,k,dec,tot])=>{const cells=P30Y.map(y=>{const d=P30[sc][String(y)];const v=dec==='pct'?100*d['Credito.cm']/d['Credito.gtv']:d[k];return `<td>${dec==='pct'?v.toFixed(2)+'%':(dec===1?p30f1(v):p30f0(v))}</td>`;}).join('');c+=`<tr class="${tot?'tot':''}"><td class="l">${lab}</td>${cells}</tr>`;});
-  document.getElementById('p30t2').innerHTML=th+'<tbody>'+c+'</tbody>';
-}
-let p30playing=false,p30timer=null;
-function drawP30(){p30kpis();p30draw();p30tables();}
-document.getElementById('tab-p30').addEventListener('click',()=>setTab3('p30'));
-document.getElementById('p30sl').addEventListener('input',p30draw);
-document.querySelectorAll('input[name=p30sc]').forEach(el=>el.addEventListener('change',()=>{p30kpis();p30draw();}));
-document.getElementById('p30play').addEventListener('click',function(){const sl=document.getElementById('p30sl');if(p30playing){clearInterval(p30timer);p30playing=false;this.textContent='▶ Play';return;}p30playing=true;this.textContent='⏸ Pausa';sl.value=2027;p30draw();p30timer=setInterval(()=>{if(+sl.value>=2030){clearInterval(p30timer);p30playing=false;document.getElementById('p30play').textContent='▶ Play';return;}sl.value=+sl.value+1;p30draw();},1100);});
-</script>
-<!-- P30 END -->
-
 <div id="pane-vol" style="display:none">
   <div class="jhead">
     <h2>Volúmenes y notas · anexo</h2>
@@ -506,8 +341,6 @@ document.getElementById('p30play').addEventListener('click',function(){const sl=
     hay inventario propio: son ventas de inmueble de terceros que Habi intermedia, y el conteo es de cierres,
     no de captaciones.</p>
   </div>
-<div class="tblcard" style="border:2px solid var(--bright)"><h2>Caso plan 2030 · volúmenes del caso plan <span>transacciones por línea 2026-2030</span></h2><div class="tblscroll"><table class="p30tbl"><thead><tr><th class="l">#</th><th>2026</th><th>2027</th><th>2028</th><th>2029</th><th>2030</th></tr></thead><tbody><tr><td class="l">Casas vendidas MM CO</td><td>2,229</td><td>2,229</td><td>2,452</td><td>2,697</td><td>2,967</td></tr><tr><td class="l">Casas vendidas MM MX</td><td>1,140</td><td>1,140</td><td>1,254</td><td>1,379</td><td>1,517</td></tr><tr><td class="l">Cierres Inmo CO</td><td>897</td><td>1,794</td><td>3,588</td><td>5,741</td><td>8,037</td></tr><tr><td class="l">Cierres Inmo MX</td><td>467</td><td>934</td><td>1,868</td><td>3,736</td><td>7,472</td></tr><tr><td class="l">Cierres Pulppo</td><td>2,680</td><td>2,814</td><td>2,955</td><td>3,102</td><td>3,258</td></tr><tr><td class="l">Créditos HabiCredit CO</td><td>7,201</td><td>8,663</td><td>10,484</td><td>12,321</td><td>13,956</td></tr><tr><td class="l">Hipotecas HabiCapital</td><td>233</td><td>3,287</td><td>7,981</td><td>13,757</td><td>20,539</td></tr><tr><td class="l">Créditos Broker MX</td><td>100</td><td>600</td><td>1,800</td><td>3,600</td><td>6,000</td></tr><tr><td class="l">Créditos Home Equity</td><td>0</td><td>274</td><td>6,163</td><td>14,440</td><td>20,358</td></tr><tr class="tot"><td class="l">Créditos totales</td><td>7,534</td><td>12,824</td><td>26,428</td><td>44,117</td><td>60,852</td></tr></tbody></table></div><div class="note"><b>Fuente:</b> Modelo 2030 v2, caso plan decidido el 27-sep-2026 (FX constante 3.100 / 17,0; MM después de intereses). Tickets del caso plan: MM CO US$61,6K, MM MX US$77,5K, Inmo CO US$70K, Inmo MX US$70,6K (1,2M MXN), Pulppo US$109K, HabiCredit US$62K (por confirmar: el memo de julio dice 259M COP), HabiCapital US$52-58K, Broker MX US$141K, Home Equity US$21,6K (30% de una casa de US$72K).</div></div>
-
   <div class="tblcard" style="margin-top:14px">
     <h2>Transacciones por línea y año <span>— = no existe el dato en ninguna fuente</span></h2>
     <div class="tblscroll"><table id="vtrx"></table></div>
@@ -531,8 +364,6 @@ document.getElementById('p30play').addEventListener('click',function(){const sl=
     La última fila de cada tabla dice <b>cuántos puntos base hacen falta para compensar exactamente esa caída</b>.
     Responde a los controles de tasa y gastos financieros de la pestaña de detalle. <span id="sysub"></span></p>
   </div>
-<div class="note" style="background:#F5F2FC;border-left:4px solid var(--bright);padding:8px 12px;margin:12px 2px"><b>Caso plan 2030:</b> las tablas de abajo usan como base el año activo del primer tab; el 2027 ya es el del caso plan. Para las sensibilidades del plan a 2030 (premio de venta, penetración de Home Equity, plan de HabiCapital, ronda) el modelo vivo es <b>Modelo_2030_v2.xlsx</b> (hoja Inputs) y sus escenarios en RESULTADOS.md.</div>
-
   <div class="tblcard" style="margin-top:14px">
     <h2>Resumen · qué tan barato es compensar volumen con margen <span>ordenado de margen más bajo a más alto</span></h2>
     <div class="tblscroll"><table id="stab"></table></div>
@@ -554,8 +385,6 @@ document.getElementById('p30play').addEventListener('click',function(){const sl=
     el bloque el año anterior. Los controles de tasa, gastos financieros y palancas viven en la pestaña
     de detalle y esta vista responde a todos.</p>
   </div>
-<div class="tblcard" style="border:2px solid var(--bright)"><h2>Caso plan 2030 · bloques de junta hasta 2030 <span>Market Maker · Red Habi · Crédito y Capital</span></h2><div class="tblscroll"><table class="p30tbl"><thead><tr><th class="l">US$M</th><th>2026</th><th>2027</th><th>2028</th><th>2029</th><th>2030</th></tr></thead><tbody><tr><td class="l">GTV Market Maker</td><td>226</td><td>226</td><td>248</td><td>273</td><td>300</td></tr><tr><td class="l">GTV Red Habi</td><td>427</td><td>531</td><td>733</td><td>1,028</td><td>1,465</td></tr><tr><td class="l">GTV Crédito y Capital</td><td>472</td><td>797</td><td>1,467</td><td>2,354</td><td>3,348</td></tr><tr><td class="l">CM Market Maker (post int.)</td><td>20.5</td><td>23.0</td><td>26.6</td><td>29.3</td><td>32.2</td></tr><tr><td class="l">CM Red Habi (con attach)</td><td>5.2</td><td>9.1</td><td>16.9</td><td>29.2</td><td>50.2</td></tr><tr><td class="l">CM Crédito y Capital (neto attach)</td><td>3.1</td><td>14.2</td><td>44.8</td><td>85.6</td><td>124.9</td></tr><tr><td class="l">Margen MM</td><td>9.1%</td><td>10.2%</td><td>10.7%</td><td>10.7%</td><td>10.7%</td></tr><tr><td class="l">Margen Red</td><td>1.22%</td><td>1.72%</td><td>2.31%</td><td>2.85%</td><td>3.43%</td></tr><tr><td class="l">Margen Crédito</td><td>0.65%</td><td>1.78%</td><td>3.05%</td><td>3.64%</td><td>3.73%</td></tr><tr><td class="l">Peso de crédito en el CM</td><td>13%</td><td>35%</td><td>54%</td><td>62%</td><td>62%</td></tr></tbody></table></div><div class="note"><b>Fuente:</b> Modelo 2030 v2, caso plan decidido el 27-sep-2026 (FX constante 3.100 / 17,0; MM después de intereses). Las burbujas y el camino a rentabilidad de abajo llegan hasta 2027, que ahora es el 2027 del caso plan. En 2030 el crédito hace el 62% del margen; en 2026 Market Maker hacía el 86%. Ese cambio de naturaleza es el mensaje de junta.</div></div>
-
   <div class="controls">
     <div class="yearrow">
       <span class="yearbig" id="jyearlbl">2026</span>
@@ -647,8 +476,6 @@ document.getElementById('p30play').addEventListener('click',function(){const sl=
     trayectorias de sus capítulos; OPEX diluyéndose. Todo prospectivo, construido desde las líneas —no desde
     el Sheet— así que la suma es la de los productos.</p>
   </div>
-<div class="tblcard" style="border:2px solid var(--bright)"><h2>Caso plan 2030 · Modelo 2030 consolidado <span>por drivers · reemplaza al modelo de agosto (3.341 / 111 / 66)</span></h2><div class="tblscroll"><table class="p30tbl"><thead><tr><th class="l">US$M</th><th>2026</th><th>2027</th><th>2028</th><th>2029</th><th>2030</th></tr></thead><tbody><tr class="tot"><td class="l">GTV bruto</td><td>1,124</td><td>1,554</td><td>2,448</td><td>3,654</td><td>5,114</td></tr><tr><td class="l">  Market Maker</td><td>226</td><td>226</td><td>248</td><td>273</td><td>300</td></tr><tr><td class="l">  Red Habi</td><td>427</td><td>531</td><td>733</td><td>1,028</td><td>1,465</td></tr><tr><td class="l">  Crédito</td><td>472</td><td>797</td><td>1,467</td><td>2,354</td><td>3,348</td></tr><tr><td class="l">GTV neto (solape 30% sobre crédito de compra)</td><td>982</td><td>1,317</td><td>2,048</td><td>3,042</td><td>4,242</td></tr><tr class="tot"><td class="l">CM after financing</td><td>23.8</td><td>40.7</td><td>82.3</td><td>137.8</td><td>200.7</td></tr><tr><td class="l">  MM post intereses</td><td>20.5</td><td>23.0</td><td>26.6</td><td>29.3</td><td>32.2</td></tr><tr><td class="l">  Red con attach</td><td>5.2</td><td>9.1</td><td>16.9</td><td>29.2</td><td>50.2</td></tr><tr><td class="l">  Crédito neto del attach</td><td>3.1</td><td>14.2</td><td>44.8</td><td>85.6</td><td>124.9</td></tr><tr><td class="l">  Financieros corporativos</td><td>-5.4</td><td>-6.0</td><td>-6.3</td><td>-6.6</td><td>-6.9</td></tr><tr><td class="l">CM % del GTV bruto</td><td>2.12%</td><td>2.62%</td><td>3.36%</td><td>3.77%</td><td>3.92%</td></tr><tr><td class="l">OPEX de estructura</td><td>51.7</td><td>41.2</td><td>43.1</td><td>45.2</td><td>47.3</td></tr><tr><td class="l">OPEX de crédito (US$100/crédito + 0,3% del libro administrado)</td><td>0.0</td><td>1.1</td><td>4.1</td><td>8.9</td><td>14.9</td></tr><tr><td class="l">OPEX total</td><td>51.7</td><td>42.3</td><td>47.2</td><td>54.1</td><td>62.3</td></tr><tr><td class="l">OPEX % del GTV bruto</td><td>4.60%</td><td>2.72%</td><td>1.93%</td><td>1.48%</td><td>1.22%</td></tr><tr class="tot"><td class="l">EBTDA</td><td>-27.9</td><td>-1.7</td><td>35.1</td><td>83.7</td><td>138.4</td></tr><tr><td class="l">Memo · EBITDA</td><td>-16.4</td><td>10.1</td><td>47.6</td><td>97.1</td><td>152.8</td></tr><tr><td class="l">Impuestos (33% sobre EBTDA positivo)</td><td>0.0</td><td>-0.0</td><td>-11.6</td><td>-27.6</td><td>-45.7</td></tr></tbody></table></div><div class="note"><b>Fuente:</b> Modelo 2030 v2, caso plan decidido el 27-sep-2026 (FX constante 3.100 / 17,0; MM después de intereses). El modelo de agosto (abajo) sumaba las líneas a FX 3.175 con OPEX 35,7 y llegaba a GTV 3.341, CM 110,7 y EBTDA 65,7 en 2030; el caso plan llega a 5.114 / 200,7 / 138,4 con OPEX 2027 de 41,2 (BLT vivo) más un OPEX de crédito que escala con el volumen. La tijera sigue siendo la tesis: el margen sube de 2,1% a 3,9% del GTV y el OPEX baja de 4,6% a 1,2%.</div></div>
-
   <div class="rhhero">
     <h3>La tesis en una línea</h3>
     <p><b>El EBTDA no mejora porque suba el margen: mejora porque el OPEX se diluye.</b> El margen de
@@ -707,8 +534,6 @@ document.getElementById('p30play').addEventListener('click',function(){const sl=
     entidad, con los drivers del movimiento. Actuals hasta <b>julio de 2026</b>; de ahí en adelante, proyección
     del modelo. Todo en US$.</p>
   </div>
-<div class="tblcard" style="border:2px solid var(--bright)"><h2>Caso plan 2030 · Caja <span>anual, simplificada · ronda única de US$40M en 2027</span></h2><div class="tblscroll"><table class="p30tbl"><thead><tr><th class="l">US$M</th><th>2026</th><th>2027</th><th>2028</th><th>2029</th><th>2030</th></tr></thead><tbody><tr><td class="l">EBTDA</td><td>-27.9</td><td>-1.7</td><td>35.1</td><td>83.7</td><td>138.4</td></tr><tr><td class="l">Ronda</td><td>0.0</td><td>40.0</td><td>0.0</td><td>0.0</td><td>0.0</td></tr><tr><td class="l">Equity operativo requerido (stock)</td><td>34.1</td><td>37.4</td><td>54.2</td><td>76.2</td><td>96.8</td></tr><tr><td class="l">Impuestos</td><td>0.0</td><td>-0.0</td><td>-11.6</td><td>-27.6</td><td>-45.7</td></tr><tr class="tot"><td class="l">Caja fin de año (simplificada)</td><td>18.0</td><td>44.0</td><td>45.7</td><td>74.8</td><td>141.9</td></tr><tr><td class="l">Freno de capital</td><td>100%</td><td>100%</td><td>100%</td><td>100%</td><td>100%</td></tr></tbody></table></div><div class="note"><b>Fuente:</b> Modelo 2030 v2, caso plan decidido el 27-sep-2026 (FX constante 3.100 / 17,0; MM después de intereses). En agosto este capítulo concluía que 2027 necesitaba US$32,7M de financiamiento nuevo; en el caso plan, con Home Equity y HabiCapital vendiendo cartera a los pocos meses, basta una ronda de 40 en 2027: 2027 cierra en −1,7 de EBTDA y la caja mínima es 44. La caja mensual de decisión sigue siendo la del Habi_Model_IB (CFO agent); esta es anual y no incluye capital de trabajo de MM más allá del equity en inventario.</div></div>
-
   <div class="rhhero" style="background:linear-gradient(135deg,#5C1010,#A02020 55%,#E4545D)">
     <h3>Lo que hay que saber antes de cualquier decisión de crecimiento</h3>
     <p><b>El colchón se usó.</b> La caja consolidada pasó de US$110M en junio de 2025 a US$26M en julio de 2026,
@@ -762,8 +587,6 @@ document.getElementById('p30play').addEventListener('click',function(){const sl=
     la tensión entre valor presente y margen anual, el techo de capital y el techo del mercado de titularización.
     Todo prospectivo salvo 2026. México no está modelado.</p>
   </div>
-<div class="tblcard" style="border:2px solid var(--bright)"><h2>Caso plan 2030 · Crédito <span>HabiCredit, HabiCapital, Broker MX y Home Equity · originar, tener pocos meses, vender, administrar</span></h2><div class="tblscroll"><table class="p30tbl"><thead><tr><th class="l">US$M</th><th>2026</th><th>2027</th><th>2028</th><th>2029</th><th>2030</th></tr></thead><tbody><tr><td class="l">Originación HabiCredit CO (broker)</td><td>446</td><td>537</td><td>650</td><td>764</td><td>865</td></tr><tr><td class="l">Originación HabiCapital (×2 del plan deck)</td><td>11</td><td>170</td><td>430</td><td>770</td><td>1,197</td></tr><tr><td class="l">Originación Broker MX</td><td>14</td><td>85</td><td>254</td><td>508</td><td>846</td></tr><tr><td class="l">Originación Home Equity (vendido a 4 meses)</td><td>0</td><td>6</td><td>133</td><td>312</td><td>440</td></tr><tr class="tot"><td class="l">GTV crédito</td><td>472</td><td>797</td><td>1,467</td><td>2,354</td><td>3,348</td></tr><tr><td class="l">Créditos originados</td><td>7,534</td><td>12,824</td><td>26,428</td><td>44,117</td><td>60,852</td></tr><tr><td class="l">CM HabiCredit CO</td><td>3.3</td><td>4.4</td><td>5.8</td><td>6.8</td><td>7.7</td></tr><tr><td class="l">CM HabiCapital (escalera: premio 5,5% + seguros 0,75% + servicing 0,3% − orig. 1,17%)</td><td>-0.1</td><td>9.2</td><td>23.8</td><td>43.4</td><td>68.6</td></tr><tr><td class="l">CM Broker MX</td><td>0.1</td><td>0.6</td><td>1.9</td><td>3.8</td><td>6.3</td></tr><tr><td class="l">CM Home Equity (premio 9,9% + seguros 1% + servicing 0,5% − costo 0,75%)</td><td>0.0</td><td>0.7</td><td>15.8</td><td>37.6</td><td>54.1</td></tr><tr class="tot"><td class="l">CM crédito</td><td>3.3</td><td>14.9</td><td>47.3</td><td>91.5</td><td>136.6</td></tr><tr><td class="l">Take blended</td><td>0.69%</td><td>1.87%</td><td>3.22%</td><td>3.89%</td><td>4.08%</td></tr><tr><td class="l">Libro administrado (HE vendido + HabiCapital titularizado)</td><td>12</td><td>186</td><td>731</td><td>1,737</td><td>3,189</td></tr><tr><td class="l">% del mercado colombiano de titularización</td><td>2%</td><td>26%</td><td>67%</td><td>119%</td><td>186%</td></tr><tr><td class="l">Freno de capital</td><td>100%</td><td>100%</td><td>100%</td><td>100%</td><td>100%</td></tr></tbody></table></div><div class="note"><b>Fuente:</b> Modelo 2030 v2, caso plan decidido el 27-sep-2026 (FX constante 3.100 / 17,0; MM después de intereses). <b>Decisiones del 27-sep que cambian este capítulo:</b> Home Equity <u>no se retiene</u> (se vende a ~4 meses a un comprador que exige ~16%; piloto de ~300 créditos en 2027, penetración madura 15%, LTV 30%, base CRM); HabiCapital crece ×2 del plan deck con rotación de 1,5 meses y la misma escalera explícita; broker México desde 2027; una sola ronda de US$40M en 2027. El motor de sliders de abajo (Home Equity retenido, 12,21% nominal, adelantos) es el de agosto y queda como referencia; el techo de titularización pasa de 93% a 186% del mercado: vehículos propios obligatorios desde 2028.</div></div>
-
 
   <div class="rhhero">
     <h3>La tesis, y las dos restricciones que la limitan</h3>
@@ -912,8 +735,6 @@ document.getElementById('p30play').addEventListener('click',function(){const sl=
     en vez de por comisión. Todo lo de esta pestaña es un <b>modelo prospectivo</b> con los supuestos abajo —
     no son actuals. Mové los controles y todo se recalcula.</p>
   </div>
-<div class="tblcard" style="border:2px solid var(--bright)"><h2>Caso plan 2030 · Red Habi <span>cierres × ticket × take por canal · attach en Crédito</span></h2><div class="tblscroll"><table class="p30tbl"><thead><tr><th class="l">US$M</th><th>2026</th><th>2027</th><th>2028</th><th>2029</th><th>2030</th></tr></thead><tbody><tr><td class="l">GTV Inmo CO</td><td>62.8</td><td>125.6</td><td>251.2</td><td>401.9</td><td>562.6</td></tr><tr><td class="l">GTV Inmo MX</td><td>33.0</td><td>65.9</td><td>131.9</td><td>263.8</td><td>527.5</td></tr><tr><td class="l">GTV Pulppo</td><td>292.1</td><td>306.7</td><td>322.1</td><td>338.2</td><td>355.1</td></tr><tr><td class="l">GTV Vivienda Nueva (run-off)</td><td>38.7</td><td>32.9</td><td>28.0</td><td>23.8</td><td>20.2</td></tr><tr class="tot"><td class="l">GTV Red Habi</td><td>426.6</td><td>531.1</td><td>733.1</td><td>1,027.5</td><td>1,465.4</td></tr><tr><td class="l">Cierres Inmo CO</td><td>897</td><td>1,794</td><td>3,588</td><td>5,741</td><td>8,037</td></tr><tr><td class="l">Cierres Inmo MX</td><td>467</td><td>934</td><td>1,868</td><td>3,736</td><td>7,472</td></tr><tr><td class="l">Cierres Pulppo</td><td>2,680</td><td>2,814</td><td>2,955</td><td>3,102</td><td>3,258</td></tr><tr><td class="l">CM Inmo CO (sin attach)</td><td>1.3</td><td>2.3</td><td>3.7</td><td>5.5</td><td>7.4</td></tr><tr><td class="l">CM Inmo MX</td><td>1.6</td><td>3.3</td><td>7.0</td><td>13.1</td><td>25.4</td></tr><tr><td class="l">CM Pulppo</td><td>1.6</td><td>2.5</td><td>3.4</td><td>4.4</td><td>5.5</td></tr><tr><td class="l">CM Vivienda Nueva</td><td>0.4</td><td>0.3</td><td>0.3</td><td>0.2</td><td>0.2</td></tr><tr class="tot"><td class="l">CM Red sin attach</td><td>5.0</td><td>8.4</td><td>14.4</td><td>23.3</td><td>38.5</td></tr><tr class="tot"><td class="l">CM Red con el crédito que refiere (comparable con este capítulo)</td><td>5.2</td><td>9.1</td><td>16.9</td><td>29.2</td><td>50.2</td></tr><tr><td class="l">Margen con attach / GTV</td><td>1.22%</td><td>1.72%</td><td>2.31%</td><td>2.85%</td><td>3.43%</td></tr></tbody></table></div><div class="note"><b>Fuente:</b> Modelo 2030 v2, caso plan decidido el 27-sep-2026 (FX constante 3.100 / 17,0; MM después de intereses). Drivers del caso plan: Inmo CO cierres ×2, ×2, +60%, +40% con franquicia 25→68% (take propio 2,13%, franquicia 0,92%); Inmo MX +100%/año (×16, no ×22) con franquicia 30→65% y attach nuevo 100→200 pbs (no medido); Pulppo +5%/año y take 0,56→1,56%; <b>Vivienda Nueva en run-off −15%/año por decisión</b>. Los sliders de abajo son el motor de agosto (Colombia ×2/×2/60/40 y peso de Inmo MX 67%): siguen sirviendo para sensibilidades, pero las cifras oficiales son estas.</div></div>
-
 
   <div class="rhhero">
     <h3>La tesis en tres movimientos</h3>
@@ -998,7 +819,7 @@ document.getElementById('p30play').addEventListener('click',function(){const sl=
 
 <div id="pane-cre" style="display:none">
   <div class="jhead">
-    <h2>Crecimiento por negocio · GTV y margen de contribución 2024-2030 <span style="font-size:11px;font-weight:600;color:#E4D7FA">· 2027-2030 = caso plan v2</span></h2>
+    <h2>Crecimiento por negocio · GTV y margen de contribución 2024-2027e</h2>
     <p>Cada negocio con su propio panel: GTV en barras, margen de contribución en línea. Abajo, las mismas series
     apiladas para comparar tamaños, el margen porcentual de todos juntos, y la descomposición de la mejora del
     margen en <b>efecto margen</b>, <b>efecto mezcla</b> e <b>interacción</b>. Usa los controles de arriba —
@@ -1039,8 +860,6 @@ document.getElementById('p30play').addEventListener('click',function(){const sl=
 </div>
 
 <div id="pane-det">
-<div class="note" style="background:#FFF6E5;border-left:4px solid var(--amber);padding:8px 12px;margin:12px 2px"><b>2027 = caso plan del Modelo 2030 v2 (27-sep-2026)</b>, ya no el 2027e de agosto: cada línea toma su GTV y contribución 2027 del modelo por drivers, convertidos a la tasa de esta pestaña. Aparecen dos líneas nuevas desde 2027: <b>Home Equity</b> (piloto, se vende a 4 meses) y <b>Broker MX</b>. 2028-2030 viven en las pestañas «Plan 2030» y «Crecimiento por negocio».</div>
-
 <div class="legend" id="legend"></div>
 
 <div class="chart">
@@ -1183,20 +1002,20 @@ const LINES=[
   // El interes anterior (2,5/2,9/3,8/4,4/4,0) venia del SHEET y NO tiene soporte contable: el
   // BLT no llega a esa cifra ni en su proyeccion de 2028. El tracker transaccional (0,48% del
   // GMV) tampoco sirve: subcarga ~3x contra el BLT. Ver seccion 3b del capitulo Market Maker.
-  gtv:[127.9,130.6,136.5,109.2,109.14], cb:[5.5,6.47,13.95,13.79,14.84], ca:[4.84,5.65,12.76,12.10,13.53]},
+  gtv:[127.9,130.6,136.5,109.2,99.4], cb:[5.5,6.47,13.95,13.79,13.74], ca:[4.84,5.65,12.76,12.10,11.75]},
  {id:'mmmx',name:'MM MX',pais:'MX',cap:'intensivo',role:'cosecha',color:'#A472F0',
   // NO se recalibra contra el P&L por linea de BET, a proposito: MM MX e Inmo MX incluyen el
   // attach de HC100/Inmo100 (el margen de financiacion sobre la venta, 4.42% neto/GMV x ~68% de
   // penetracion = ~3% blended), que BET no atribuye a estas lineas. Recalibrar contra BET se lo
   // quitaria y subestimaria el negocio. Esta linea se queda como estaba.
-  gtv:[100.2,108.9,93.4,81.2,81.19], cb:[11.8,5.9,5.7,8.6,9.34], ca:[6.3,-0.5,0.7,4.2,5.52]},
+  gtv:[100.2,108.9,93.4,81.2,73.1], cb:[11.8,5.9,5.7,8.6,8.1], ca:[6.3,-0.5,0.7,4.2,5.6]},
  {id:'inmoco',name:'Inmo CO',pais:'CO',cap:'light',role:'prioridad',color:'#146B3A',
   // 2027: GTV +100% (franquicias + crecimiento propio). El margen BAJA de 2.81% a 2.34% porque la mitad
   // de ese crecimiento entra por franquicia, donde Habi retiene 1 de 5 puntos (0.92% contra 2.81%).
   // Crecer 100% en volumen deja la contribucion casi igual: mas volumen y menos margen se cancelan.
   // NO se suma aqui el attach de credito (0.75pp en 2027 segun el modelo de Red Habi): ese margen ya
   // esta contado en la linea HabiCredit y sumarlo seria doble conteo. Ver la pestaña Red Habi.
-  gtv:[31.5,28.7,32.8,50.3,99.82], cb:[0.4,0.53,0.67,1.07,1.82], ca:[0.4,0.53,0.67,1.07,1.82]},
+  gtv:[31.5,28.7,32.8,50.3,100.6], cb:[0.4,0.53,0.67,1.07,2.35], ca:[0.4,0.53,0.67,1.07,2.35]},
  {id:'inmomx',name:'Inmo MX',pais:'MX',cap:'light',role:'prioridad',color:'#54C96B',star:true,
   // NO se recalibra contra el P&L por linea de BET, a proposito: MM MX e Inmo MX incluyen el
   // attach de HC100/Inmo100 (el margen de financiacion sobre la venta, 4.42% neto/GMV x ~68% de
@@ -1209,7 +1028,7 @@ const LINES=[
   // PERIMETRO SIN CONCILIAR: el BLT mide $12.0M de GMV en 2026 con 183 facturas; el Sheet mide $31.1M.
   // Aca se conserva el GTV del Sheet (base del resto del aplicativo) y se le aplica el MARGEN del BLT.
   // 2027: GTV +100% (franquicias + crecimiento propio) y margen 7.00%, objetivo del plan de Red Habi.
-  gtv:[2.4,11.4,15.1,31.1,60.59], cb:[0.4,0.44,0.54,1.55,3.02], ca:[0.4,0.44,0.54,1.55,3.02]},
+  gtv:[2.4,11.4,15.1,31.1,62.2], cb:[0.4,0.44,0.54,1.55,4.35], ca:[0.4,0.44,0.54,1.55,4.35]},
  {id:'habicredit',name:'HabiCredit',pais:'CO',cap:'light',role:'margen',color:'#0E9DA8',
   // CIFRAS REALES, no del Sheet. Dos fuentes independientes que coinciden: el P&L contable
   // (Contribution Profit) del dashboard de Capital Markets y el tape por cohorte de desembolso
@@ -1223,7 +1042,7 @@ const LINES=[
   // 2023 se queda como estaba: el tape arranca en enero de 2024. No es comparable.
   // OJO: de cada peso de comision recibida, 67 centavos se van a comision de EXTERNOS,
   // proporcion que no ha mejorado en dos anios. Es la mayor palanca sin explotar del producto.
-  gtv:[86.3,212.1,338.0,350.7,426.91], cb:[1.5,0.59,2.47,2.60,3.48], ca:[1.5,0.59,2.47,2.60,3.48]},
+  gtv:[86.3,212.1,338.0,350.7,456.0], cb:[1.5,0.59,2.47,2.60,3.69], ca:[1.5,0.59,2.47,2.60,3.69]},
  {id:'pulppo',name:'Pulppo Ventas',pais:'MX',cap:'light',role:'margen',color:'#C43E7A',dashed:true,
   // 2023-2024 recuperados del Sheet Platform GTV ($59.3M y $110.1M de GTV). Estaban en null,
   // lo que inflaba el crecimiento de México en 2025 y hacía ver a Pulppo como línea nueva.
@@ -1232,7 +1051,7 @@ const LINES=[
   // = 28.4M MXN = $1.54M, o 0.56% del GTV. La serie anterior (2.54 en 2026, 4.06 en 2027) venia
   // del aplicativo original sin validar y sobrestimaba 65% y 111%. Pulppo cobra ~3.2% de comision
   // y le queda ~0.6% despues de pagar a los agentes. 2027 y 2023-2024 al rate de 2026.
-  gtv:[59.3,110.1,220.5,272.8,281.86], cb:[0.33,0.62,1.38,1.54,2.28], ca:[0.33,0.62,1.38,1.54,2.28]},
+  gtv:[59.3,110.1,220.5,272.8,341], cb:[0.33,0.62,1.38,1.54,1.92], ca:[0.33,0.62,1.38,1.54,1.92]},
  {id:'habicapital',name:'HabiCapital',pais:'CO',cap:'intensivo',role:'prioridad',color:'#8A6608',star:true,dashed:true,
   // GTV = desembolsos del modelo HabiCapital jul-26 (34,446 / 262,797 COP MM @3,900).
   // ⚠️ MARGEN NORMATIVO, NO MEDIDO: 4.5% del GMV en 2026 y 2027, por decisión explícita, como
@@ -1251,19 +1070,13 @@ const LINES=[
   // El margen sube en el tiempo porque seguros y servicing se cobran sobre la cartera ACUMULADA:
   // 1,91% (2027) -> 2,23% -> 3,30% -> 5,57% (2030).
   // Para volver al normativo: ca 0.396 y 3.033. Es una decision de presentacion, no de dato.
-  gtv:[null,null,null,8.8,134.81], cb:[null,null,null,-0.118,7.33], ca:[null,null,null,-0.118,7.33]},
+  gtv:[null,null,null,8.8,67.4], cb:[null,null,null,-0.118,1.287], ca:[null,null,null,-0.118,1.287]},
  {id:'vivnueva',name:'Vivienda Nueva',pais:'MX',cap:'light',role:'baja',color:'#2A6FBF',dashed:true,
   // Margen del BLT (data_combo_2, filas R445/R448/R456), no estimado: la constructora paga
   // 3.017% de comision sobre el GMV, de lo cual 2.000% se va en comision externa a brokers,
   // dejando un gross margin de 1.017% del GMV. Antes esta linea tenia 2.50% inventado.
   // Si ademas se descuenta la comision interna de ventas (0.165%, fila R452) quedaria en 0.85%.
-  gtv:[null,null,48,35.6,30.23], cb:[null,null,0.488,0.362,0.31], ca:[null,null,0.488,0.362,0.31]},
- {id:'homeeq',name:'Home Equity',pais:'CO',cap:'light',role:'prioridad',color:'#D95926',dashed:true,
-  // CASO PLAN v2 (27-sep-2026): originar y vender a 4 meses; 2027 = piloto. 2028-2030 en la pestaña Plan 2030.
-  gtv:[null,null,null,null,4.71], cb:[null,null,null,null,0.56], ca:[null,null,null,null,0.56]},
- {id:'brokermx',name:'Broker MX (HabiCredit)',pais:'MX',cap:'light',role:'margen',color:'#0B7285',dashed:true,
-  // CASO PLAN v2: crédito bancario gestionado por HabiCredit en México desde 2027 (600 créditos → 6.000 en 2030).
-  gtv:[null,null,null,null,77.74], cb:[null,null,null,null,0.58], ca:[null,null,null,null,0.58]},
+  gtv:[null,null,48,35.6,32], cb:[null,null,0.488,0.362,0.326], ca:[null,null,0.488,0.362,0.326]},
 ];
 const CAPINT={mmco:1,mmmx:1,habicapital:1,bmm:1};
 // Bloques con la MISMA forma que las líneas, para que todas las gráficas del primer tab puedan
@@ -1271,7 +1084,7 @@ const CAPINT={mmco:1,mmmx:1,habicapital:1,bmm:1};
 // respeta los filtros de país y capital, así que un bloque se encoge si se filtra uno de sus miembros.
 const BLOCKS=[
  {id:'bmm',  name:'MARKET MAKER',      pais:'MIX', cap:'intensivo', role:'cosecha',  color:'#6B21C8', members:['mmco','mmmx']},
- {id:'bcred',name:'CRÉDITO Y CAPITAL', pais:'CO',  cap:'mixto',     role:'margen',   color:'#0E9DA8', members:['habicredit','habicapital','homeeq','brokermx']},
+ {id:'bcred',name:'CRÉDITO Y CAPITAL', pais:'CO',  cap:'mixto',     role:'margen',   color:'#0E9DA8', members:['habicredit','habicapital']},
  {id:'binmo',name:'RED HABI',          pais:'MIX', cap:'light',     role:'prioridad',color:'#146B3A', star:true, members:['inmoco','inmomx','pulppo']},
  {id:'bvn',  name:'VIVIENDA NUEVA',    pais:'MX',  cap:'light',     role:'baja',     color:'#2A6FBF', dashed:true, members:['vivnueva']},
 ];
@@ -2061,7 +1874,7 @@ document.getElementById('assump').innerHTML='<b>Tamaño = margen de contribució
 // Paleta validada en este orden (validate_palette.js, modo claro: ALL CHECKS PASS).
 const GROUPS=[
  {id:'gmm',  name:'MARKET MAKER',      members:['mmco','mmmx'],              color:'#6B21C8', cap:'intensivo', role:'Cosecha · capital-intensivo'},
- {id:'gcred',name:'CRÉDITO Y CAPITAL', members:['habicredit','habicapital','homeeq','brokermx'], color:'#0E9DA8', cap:'mixto',     role:'HabiCapital prioridad · HabiCredit buscar margen'},
+ {id:'gcred',name:'CRÉDITO Y CAPITAL', members:['habicredit','habicapital'], color:'#0E9DA8', cap:'mixto',     role:'HabiCapital prioridad · HabiCredit buscar margen'},
  {id:'ginmo',name:'RED HABI',          members:['inmoco','inmomx','pulppo'], color:'#146B3A', cap:'light',     role:'Prioridad · incluye Pulppo / franquicias'},
  {id:'gvn',  name:'VIVIENDA NUEVA',    members:['vivnueva'],                 color:'#2A6FBF', cap:'light',     role:'Baja prioridad'},
 ];
@@ -3322,8 +3135,8 @@ function drawComp(){
 }
 
 function setTab3(which){
-  const P={p30:'pane-p30',det:'pane-det',cre:'pane-cre',red:'pane-red',cred:'pane-cred',m30:'pane-m30',caja:'pane-caja',jun:'pane-jun',mm:'pane-mm',comp:'pane-comp',sen:'pane-sen',vol:'pane-vol'};
-  const T={p30:'tab-p30',det:'tab-det',cre:'tab-cre',red:'tab-red',cred:'tab-cred',m30:'tab-m30',caja:'tab-caja',jun:'tab-jun',mm:'tab-mm',comp:'tab-comp',sen:'tab-sen',vol:'tab-vol'};
+  const P={det:'pane-det',cre:'pane-cre',red:'pane-red',cred:'pane-cred',m30:'pane-m30',caja:'pane-caja',jun:'pane-jun',mm:'pane-mm',comp:'pane-comp',sen:'pane-sen',vol:'pane-vol'};
+  const T={det:'tab-det',cre:'tab-cre',red:'tab-red',cred:'tab-cred',m30:'tab-m30',caja:'tab-caja',jun:'tab-jun',mm:'tab-mm',comp:'tab-comp',sen:'tab-sen',vol:'tab-vol'};
   Object.keys(P).forEach(k=>{
     const p=document.getElementById(P[k]); if(p)p.style.display=(k===which)?'block':'none';
     const t=document.getElementById(T[k]); if(t)t.setAttribute('aria-selected',(k===which)?'true':'false');});
@@ -3331,7 +3144,6 @@ function setTab3(which){
   document.getElementById('gctl').style.display=(which==='det'||which==='cre')?'block':'none';
   document.getElementById('yearrow').style.display=(which==='det')?'flex':'none';
   JUNTA=(which==='jun');
-  if(which==='p30')drawP30();
   if(which==='jun')renderJunta();
   if(which==='mm'){mmSliders();drawMM();}
   if(which==='comp')drawComp();
@@ -3456,31 +3268,16 @@ document.getElementById('bridgenote').innerHTML='<b>Buildup del EBTDA consolidad
 // Reusa el motor de la primera pestaña: ACTIVE() respeta «Ver por», y G()/contrib()
 // respetan tasa, pre/post financieros y —para bloques— los filtros de país y capital.
 // Lo único propio es el filtro de negocios y el dibujo. Todo con prefijo cn.
-const CN_YY=[2024,2025,2026,2027,2028,2029,2030]; const CN_N=CN_YY.length, CN_LAST=CN_N-1;
-// 2027-2030 salen del Modelo 2030 v2 (caso plan balanceado, payload P30). Las líneas nuevas solo existen aquí.
-const CN_EXTRA=[{id:'homeeq',name:'Home Equity',pais:'CO',cap:'light',role:'prioridad',color:'#D95926',extra:true},{id:'brokermx',name:'Broker MX (HabiCredit)',pais:'MX',cap:'light',role:'margen',color:'#0B7285',extra:true}];
-const CN_MAP={mmco:['MM.co_gtv','MM.co_cm','MM.co_cm_pre','CO'],mmmx:['MM.mx_gtv','MM.mx_cm','MM.mx_cm_pre','MX'],inmoco:['Red.co_gtv','Red.co_cm',null,'CO'],inmomx:['Red.mx_gtv','Red.mx_cm',null,'MX'],
-  habicredit:['Credito.hcr_orig','Credito.hcr_cm',null,'CO'],pulppo:['Red.pu_gtv','Red.pu_cm',null,'MX'],habicapital:['Credito.hcap_orig','Credito.hcap_cm',null,'CO'],vivnueva:['Red.vn_gtv','Red.vn_cm',null,'MX'],
-  homeeq:['Credito.he_orig','Credito.he_cm',null,'CO'],brokermx:['Credito.mx_orig','Credito.mx_cm',null,'MX']};
-const CN_BLOCK_MEMBERS={bmm:['mmco','mmmx'],bcred:['habicredit','habicapital','homeeq','brokermx'],binmo:['inmoco','inmomx','pulppo'],bvn:['vivnueva']};
-function cnFxDisp(p,y){ if(!fxVar()) return FXCONST[p]; const r=FX[p]&&FX[p][y]; return r||(p==='CO'?3175:17.30); }
-function cnPlanLine(id,y,key){ const m=CN_MAP[id]; if(!m) return null; const d=P30.plan[String(y)]; if(!d) return null;
-  const k=key==='g'?m[0]:((document.getElementById('postfin').checked||!m[2])?m[1]:m[2]); const v=d[k]; if(v==null) return null;
-  const loc=m[3]==='CO'?v*3100:v*17; return loc/cnFxDisp(m[3],y); }
-function cnPlan(e,k,key){ const y=CN_YY[k];
-  if(e.members||CN_BLOCK_MEMBERS[e.id]){ const ids=CN_BLOCK_MEMBERS[e.id]||e.members; let t=null;
-    ids.forEach(id=>{ const m=byId[id]||CN_EXTRA.find(x=>x.id===id); if(!m||!memberOk(m)) return; const v=cnPlanLine(id,y,key); if(v!=null) t=(t||0)+v; }); return t; }
-  return cnPlanLine(e.id,y,key); }
+const CN_YY=[2024,2025,2026,2027];
 const CN_I=CN_YY.map(y=>YRS.indexOf(y));   // índices sobre YRS; 2023 queda fuera a propósito
 // G() no filtra líneas sueltas por país/capital (eso lo hace vis() con el año activo),
 // así que acá se aplica el mismo criterio pero sobre la serie completa.
 function cnOk(e){ return e.members ? e.members.some(id=>byId[id]&&memberOk(byId[id])) : memberOk(e); }
 let CN_SEL={};
-const cnActive=()=>AGRUP()==='bloque'?BLOCKS:LINES;
-function cnReset(){ CN_SEL={}; cnActive().forEach(e=>CN_SEL[e.id]=true); }
-function cnAct(){ return cnActive().filter(e=>cnOk(e)&&CN_SEL[e.id]); }
-const cnG=(e,k)=>CN_YY[k]>=2027?cnPlan(e,k,'g'):G(e,CN_I[k]);
-const cnC=(e,k)=>CN_YY[k]>=2027?cnPlan(e,k,'c'):contrib(e,CN_I[k]);
+function cnReset(){ CN_SEL={}; ACTIVE().forEach(e=>CN_SEL[e.id]=true); }
+function cnAct(){ return ACTIVE().filter(e=>cnOk(e)&&CN_SEL[e.id]); }
+const cnG=(e,k)=>G(e,CN_I[k]);
+const cnC=(e,k)=>contrib(e,CN_I[k]);
 const cnF=(v,n=1)=>v==null?'—':v.toLocaleString('es',{minimumFractionDigits:n,maximumFractionDigits:n});
 const cnYoY=(a,b)=>(a==null||b==null||a===0)?null:(b/a-1)*100;
 const cnCagr=(a,b,n)=>(a==null||b==null||a<=0||b<=0)?null:((Math.pow(b/a,1/n)-1)*100);
@@ -3493,9 +3290,9 @@ function cnPanels(){
   document.getElementById('cnsm').innerHTML=E.map(e=>{
     const g=CN_YY.map((_,k)=>cnG(e,k)), c=CN_YY.map((_,k)=>cnC(e,k));
     const p=g.map((x,k)=>(x&&c[k]!=null)?c[k]/x*100:null);
-    const W=300,GH=68,LH=54,PAD=30,GAP=20;
+    const W=262,GH=68,LH=54,PAD=30,GAP=20;
     const gmax=Math.max(...g.filter(v=>v!=null),1)*1.22;
-    const slot=(W-PAD-6)/CN_N, bw=Math.min(24,slot*0.62), bx=k=>PAD+slot*k+slot/2;
+    const bw=26, slot=(W-PAD-6)/4, bx=k=>PAD+slot*k+slot/2;
     let s=`<text x="0" y="9" class="cngl">GTV US$ M</text>`;
     g.forEach((v,k)=>{ if(v==null||v<=0) return;
       const h=v/gmax*GH, y=14+GH-h;
@@ -3514,16 +3311,16 @@ function cnPanels(){
       s+=`<circle cx="${bx(k)}" cy="${sy(v).toFixed(1)}" r="4" fill="${e.color}" stroke="#fff" stroke-width="1.8">`
         +`<title>${e.name} · ${CN_YY[k]}\nMargen: ${v.toFixed(2)}%\nContribución: $${cnF(c[k],2)}M</title></circle>`
         +`<text x="${bx(k)}" y="${(sy(v)-8).toFixed(1)}" text-anchor="middle" font-size="8.5" font-weight="800" fill="${e.color}">${v.toFixed(1)}%</text>`;});
-    CN_YY.forEach((y,k)=>s+=`<text x="${bx(k)}" y="${y0+LH+13}" text-anchor="middle" font-size="8.5" font-weight="700" fill="#8A8496">${String(y).slice(2)}${y>=2027?'p':''}</text>`);
-    const cg=cnCagr(g[0],g[CN_LAST],CN_LAST), dp=(p[0]!=null&&p[CN_LAST]!=null)?p[CN_LAST]-p[0]:null;
+    CN_YY.forEach((y,k)=>s+=`<text x="${bx(k)}" y="${y0+LH+13}" text-anchor="middle" font-size="8.5" font-weight="700" fill="#8A8496">${y===2027?'27e':String(y).slice(2)}</text>`);
+    const cg=cnCagr(g[0],g[3],3), dp=(p[0]!=null&&p[3]!=null)?p[3]-p[0]:null;
     const col=v=>v==null?'#8A8496':(v>=0?'#06C167':'#E4545D');
     const sub=e.members?(e.members.length+' líneas'):(e.pais+' · '+(e.cap==='intensivo'?'capital-int.':'capital-light'));
     return `<div class="cnpan"><h3><i style="background:${e.color}"></i>${e.name}</h3>`
-      +`<div class="sub">${sub} · $${cnF(g[CN_LAST])}M de GTV en 2030p</div>`
+      +`<div class="sub">${sub} · $${cnF(g[3])}M de GTV en 2027e</div>`
       +`<svg viewBox="0 0 ${W} ${y0+LH+18}" style="width:100%;height:auto">${s}</svg>`
       +`<div class="cnst">`
-      +`<div><div class="k">CAGR GTV 24-30</div><div class="v" style="color:${col(cg)}">${cg==null?'n/d':(cg>=0?'+':'')+cg.toFixed(1)+'%'}</div></div>`
-      +`<div><div class="k">Margen 2030p</div><div class="v" style="color:${e.color}">${p[CN_LAST]==null?'n/d':p[CN_LAST].toFixed(2)+'%'}</div></div>`
+      +`<div><div class="k">CAGR GTV 24-27</div><div class="v" style="color:${col(cg)}">${cg==null?'n/d':(cg>=0?'+':'')+cg.toFixed(1)+'%'}</div></div>`
+      +`<div><div class="k">Margen 2027e</div><div class="v" style="color:${e.color}">${p[3]==null?'n/d':p[3].toFixed(2)+'%'}</div></div>`
       +`<div><div class="k">Δ margen</div><div class="v" style="color:${col(dp)}">${dp==null?'n/d':(dp>=0?'+':'')+dp.toFixed(2)+'pp'}</div></div>`
       +`</div></div>`;}).join('');
 }
@@ -3538,7 +3335,7 @@ function cnStack(el,key){
   const top=Math.max(...CN_YY.map((_,k)=>D.reduce((t,d)=>t+Math.max(0,d.v[k]||0),0)),1)*1.16;
   const bot=Math.min(0,Math.min(...CN_YY.map((_,k)=>D.reduce((t,d)=>t+Math.min(0,d.v[k]||0),0))))*1.3;
   const sy=v=>Y1-(v-bot)/(top-bot)*(Y1-Y0);
-  const slot=(X1-X0)/CN_N, bw=Math.min(120,slot*0.5);
+  const slot=(X1-X0)/4, bw=Math.min(120,slot*0.5);
   let g='';
   for(let t=0;t<=4;t++){const v=bot+(top-bot)*t/4,y=sy(v);
     g+=`<line x1="${X0}" y1="${y.toFixed(1)}" x2="${X1}" y2="${y.toFixed(1)}" stroke="#EFEBF7"/>`
@@ -3552,7 +3349,7 @@ function cnStack(el,key){
       g+=`<rect x="${(cx-bw/2).toFixed(1)}" y="${a.toFixed(1)}" width="${bw}" height="${Math.max(0,b-a-2).toFixed(1)}" fill="${d.e.color}" rx="3">`
         +`<title>${d.e.name} · ${y}\n${key==='g'?'GTV':'Contribución'}: $${cnF(v,key==='g'?1:2)}M</title></rect>`;});
     g+=`<text x="${cx}" y="${(sy(accP)-7).toFixed(1)}" text-anchor="middle" font-size="12" font-weight="900" fill="#4B1A8B">$${cnF(tot[k],key==='g'?0:1)}M</text>`;
-    g+=`<text x="${cx}" y="${Y1+16}" text-anchor="middle" font-size="11" font-weight="800" fill="#4C4C4D">${y}${y>=2027?'p':''}</text>`;});
+    g+=`<text x="${cx}" y="${Y1+16}" text-anchor="middle" font-size="11" font-weight="800" fill="#4C4C4D">${y}${y===2027?'e':''}</text>`;});
   document.getElementById(el).innerHTML=`<svg viewBox="0 0 ${W} ${H}" style="width:100%;height:auto">${g}</svg>`;
 }
 
@@ -3569,13 +3366,13 @@ function cnLines(){
   const all=S.flatMap(s=>s.p).filter(v=>v!=null);
   const mx=Math.max(...all,1), mn=Math.min(...all,0), pd=(mx-mn)*0.15;
   const top=mx+pd, bot=mn-pd, sy=v=>Y1-(v-bot)/(top-bot)*(Y1-Y0);
-  const slot=(X1-X0)/CN_N, sx=k=>X0+slot*k+slot/2;
+  const slot=(X1-X0)/4, sx=k=>X0+slot*k+slot/2;
   let g='';
   for(let t=0;t<=4;t++){const v=bot+(top-bot)*t/4,y=sy(v);
     g+=`<line x1="${X0}" y1="${y.toFixed(1)}" x2="${X1}" y2="${y.toFixed(1)}" stroke="#EFEBF7"/>`
       +`<text x="${X0-8}" y="${(y+3).toFixed(1)}" text-anchor="end" font-size="9" fill="#8A8496">${v.toFixed(1)}%</text>`;}
   if(bot<0) g+=`<line x1="${X0}" y1="${sy(0).toFixed(1)}" x2="${X1}" y2="${sy(0).toFixed(1)}" stroke="#191919" stroke-width="1.2"/>`;
-  CN_YY.forEach((y,k)=>g+=`<text x="${sx(k)}" y="${Y1+16}" text-anchor="middle" font-size="11" font-weight="800" fill="#4C4C4D">${y}${y>=2027?'p':''}</text>`);
+  CN_YY.forEach((y,k)=>g+=`<text x="${sx(k)}" y="${Y1+16}" text-anchor="middle" font-size="11" font-weight="800" fill="#4C4C4D">${y}${y===2027?'e':''}</text>`);
   const lab=[];
   S.forEach(s=>{
     const pts=s.p.map((v,k)=>v==null?null:[sx(k),sy(v)]).filter(Boolean);
@@ -3596,12 +3393,12 @@ function cnTbl(el,key){
   const E=cnAct(), d=key==='g'?1:2;
   const rows=E.map(e=>({e,v:CN_YY.map((_,k)=>key==='g'?cnG(e,k):cnC(e,k))}));
   const tot=CN_YY.map((_,k)=>rows.reduce((t,r)=>t+(r.v[k]||0),0));
-  let h=`<thead><tr><th>Negocio</th>${CN_YY.map(y=>`<th>${y}${y>=2027?'p':''}</th>`).join('')}`
-       +CN_YY.slice(1).map(y=>`<th>YoY ${String(y).slice(2)}${y>=2027?'p':''}</th>`).join('')+`<th>CAGR 24-30</th></tr></thead><tbody>`;
-  const row=(name,color,v,cls)=>{const c=cnCagr(v[0],v[CN_LAST],CN_LAST);
+  let h=`<thead><tr><th>Negocio</th>${CN_YY.map(y=>`<th>${y}${y===2027?'e':''}</th>`).join('')}`
+       +`<th>YoY 25</th><th>YoY 26</th><th>YoY 27e</th><th>CAGR 24-27</th></tr></thead><tbody>`;
+  const row=(name,color,v,cls)=>{const c=cnCagr(v[0],v[3],3);
     return `<tr class="${cls||''}"><td>${color?`<span class="cnsw" style="background:${color}"></span>`:''}${name}</td>`
       +v.map(x=>`<td class="num">${x==null?'—':'$'+cnF(x,d)}</td>`).join('')
-      +v.slice(1).map((x,i)=>cnPc(cnYoY(v[i],x))).join('')
+      +cnPc(cnYoY(v[0],v[1]))+cnPc(cnYoY(v[1],v[2]))+cnPc(cnYoY(v[2],v[3]))
       +(c==null?'<td>—</td>':`<td class="num ${c>=0?'cnpos':'cnneg'}">${c>=0?'+':''}${c.toFixed(1)}%</td>`)+`</tr>`;};
   h+=rows.map(r=>row(r.e.name,r.e.color,r.v)).join('');
   if(E.length>1) h+=row('TOTAL',null,tot,'tot');
@@ -3613,8 +3410,8 @@ function cnTblPct(){
   const tg=CN_YY.map((_,k)=>E.reduce((t,e)=>t+(cnG(e,k)||0),0));
   const tc=CN_YY.map((_,k)=>E.reduce((t,e)=>t+(cnC(e,k)||0),0));
   const tp=tg.map((g,k)=>g?tc[k]/g*100:null);
-  let h=`<thead><tr><th>Negocio</th>${CN_YY.map(y=>`<th>${y}${y>=2027?'p':''}</th>`).join('')}<th>Δ 2024 → 2030p</th></tr></thead><tbody>`;
-  const row=(n,color,p,cls)=>{const d=(p[0]!=null&&p[CN_LAST]!=null)?p[CN_LAST]-p[0]:null;
+  let h=`<thead><tr><th>Negocio</th>${CN_YY.map(y=>`<th>${y}${y===2027?'e':''}</th>`).join('')}<th>Δ 2024 → 2027e</th></tr></thead><tbody>`;
+  const row=(n,color,p,cls)=>{const d=(p[0]!=null&&p[3]!=null)?p[3]-p[0]:null;
     return `<tr class="${cls||''}"><td>${color?`<span class="cnsw" style="background:${color}"></span>`:''}${n}</td>`
       +p.map(x=>`<td class="num">${x==null?'—':x.toFixed(2)+'%'}</td>`).join('')
       +(d==null?'<td>—</td>':`<td class="num ${d>=0?'cnpos':'cnneg'}">${d>=0?'+':''}${d.toFixed(2)} pp</td>`)+`</tr>`;};
@@ -3628,11 +3425,11 @@ function cnDecomp(){
   const E=cnAct();
   if(E.length<2){document.getElementById('cnkpi').innerHTML='';document.getElementById('cntd').innerHTML='';
     document.getElementById('cndnote').innerHTML='La descomposición necesita al menos dos negocios seleccionados: separa el efecto de los márgenes del efecto de la mezcla entre ellos.';return;}
-  const g0=E.map(e=>cnG(e,0)||0), g3=E.map(e=>cnG(e,CN_LAST)||0);
+  const g0=E.map(e=>cnG(e,0)||0), g3=E.map(e=>cnG(e,3)||0);
   const m0=E.map((e,i)=>g0[i]?(cnC(e,0)||0)/g0[i]*100:0);
-  const m3=E.map((e,i)=>g3[i]?(cnC(e,CN_LAST)||0)/g3[i]*100:0);
+  const m3=E.map((e,i)=>g3[i]?(cnC(e,3)||0)/g3[i]*100:0);
   const T0=g0.reduce((a,b)=>a+b,0), T3=g3.reduce((a,b)=>a+b,0);
-  if(!T0||!T3){document.getElementById('cndnote').innerHTML='Sin base de 2024 o de 2030p en la selección, no hay descomposición posible.';return;}
+  if(!T0||!T3){document.getElementById('cndnote').innerHTML='Sin base de 2024 o de 2027e en la selección, no hay descomposición posible.';return;}
   const w0=g0.map(x=>x/T0), w3=g3.map(x=>x/T3);
   const p0=w0.reduce((t,w,i)=>t+w*m0[i],0), p3=w3.reduce((t,w,i)=>t+w*m3[i],0);
   const em=w0.reduce((t,w,i)=>t+w*m3[i],0)-p0;
@@ -3642,11 +3439,11 @@ function cnDecomp(){
            ['Efecto margen',(em>=0?'+':'')+em.toFixed(2)+' pp','mismos pesos, mejores márgenes'],
            ['Efecto mezcla',(ex>=0?'+':'')+ex.toFixed(2)+' pp','mismos márgenes, nuevos pesos'],
            ['Interacción',(it>=0?'+':'')+it.toFixed(2)+' pp','el que mejoró es el que se encogió'],
-           ['Margen 2030p',p3.toFixed(2)+'%','llegada']];
+           ['Margen 2027e',p3.toFixed(2)+'%','llegada']];
   document.getElementById('cnkpi').innerHTML=K.map(k=>
     `<div class="cnkpi"><div class="k">${k[0]}</div><div class="v">${k[1]}</div><div class="s">${k[2]}</div></div>`).join('');
   const c3=g3.map((g,i)=>g*m3[i]/100), C3=c3.reduce((a,b)=>a+b,0);
-  let h=`<thead><tr><th>Negocio</th><th>Aporte al efecto margen</th><th>% del GTV 2030p</th><th>% del margen 2030p</th></tr></thead><tbody>`;
+  let h=`<thead><tr><th>Negocio</th><th>Aporte al efecto margen</th><th>% del GTV 2027e</th><th>% del margen 2027e</th></tr></thead><tbody>`;
   E.forEach((e,i)=>{const a=w0[i]*(m3[i]-m0[i]);
     h+=`<tr><td><span class="cnsw" style="background:${e.color}"></span>${e.name}</td>`
       +`<td class="num ${a>=0?'cnpos':'cnneg'}">${a>=0?'+':''}${a.toFixed(2)} pp</td>`
@@ -3662,14 +3459,14 @@ function cnDecomp(){
    +`<b>${share.toFixed(0)}% de él es ${E[bi].name}</b>. El <b>efecto mezcla</b> (${ex>=0?'+':''}${ex.toFixed(2)} pp) es lo que `
    +`aportaría el cambio de pesos manteniendo los márgenes de 2024. La <b>interacción</b> (${it>=0?'+':''}${it.toFixed(2)} pp) captura `
    +`si el que mejoró su margen ganó o perdió peso: sale negativa cuando el que más mejora es justo el que se encoge. `
-   +`En 2030p ${E[bi].name} hace <b>${C3?(c3[bi]/C3*100).toFixed(0):'—'}% del margen con ${(w3[bi]*100).toFixed(0)}% del GTV</b>. `
+   +`En 2027e ${E[bi].name} hace <b>${C3?(c3[bi]/C3*100).toFixed(0):'—'}% del margen con ${(w3[bi]*100).toFixed(0)}% del GTV</b>. `
    +`Ese es el nudo: mientras el crecimiento esté en los negocios de margen bajo, crecer diluye, y la mejora del consolidado `
    +`depende de que esos negocios suban su propio margen, no de que crezcan más.`;
 }
 
 function cnChks(){
   const box=document.getElementById('cnchk'); if(!box)return;
-  box.innerHTML=cnActive().map(e=>
+  box.innerHTML=ACTIVE().map(e=>
     `<label><input type="checkbox" class="cnfe" value="${e.id}" ${CN_SEL[e.id]?'checked':''}>`
    +`<span class="cnsw" style="background:${e.color}"></span>${e.name}</label>`).join('');
   box.querySelectorAll('.cnfe').forEach(el=>el.addEventListener('change',()=>{CN_SEL[el.value]=el.checked;drawCre();}));
