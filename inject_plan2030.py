@@ -35,9 +35,9 @@ PANE = r'''<!-- P30 START -->
     <h2>1 · Decisiones tomadas por Sebastián Noguera <span>27-sep-2026</span></h2>
     <div class="p30dec" style="margin-top:10px">
       <div><b>Home Equity se origina para vender a ~4 meses.</b> El comprador de cartera exige ~16%: premio de venta 9,9% del principal. Producto eficiente en capital, no de balance. Habi retiene servicing (0,5%/año) y seguros (1% upfront).</div>
-      <div><b>Home Equity arranca despacio y acelera en 2028.</b> Piloto de ~450 créditos (US$10M) en 2027 para medir pérdida y conversión; 10 mil créditos en 2028, 24 mil en 2029, 34 mil en 2030.</div>
-      <div><b>Una sola ronda de US$40M en 2027.</b> Al vender Home Equity la segunda ronda (160 en 2028) deja de ser necesaria: el freno de capital queda en 100% todos los años.</div>
-      <div><b>HabiCapital = el plan que ya vio BBVA</b> (599 de originación en 2030), sin adelanto de seguros/servicing, rotando la cartera en 1,5 meses.</div>
+      <div><b>Home Equity arranca despacio, acelera en 2028 y se mantiene acotado.</b> Piloto de ~300 créditos en 2027; penetración madura 15% (no 25%): 6 mil créditos en 2028, 14 mil en 2029, 20 mil en 2030 (US$440M).</div>
+      <div><b>Una sola ronda de US$40M en 2027.</b> Al vender la cartera de los dos productos a los pocos meses, la segunda ronda (160 en 2028) deja de ser necesaria: el freno de capital queda en 100% todos los años. Broker México llega a 9 mil créditos.</div>
+      <div><b>HabiCapital crece más que el plan que vio BBVA: ×2</b> (1.197 de originación y 20 mil hipotecas en 2030), con la misma escalera explícita que Home Equity: premio de venta 5,5%, seguros 0,75%, servicing 0,3%/año, rotación 1,5 meses. Es el activo que el mercado ya sabe comprar.</div>
       <div><b>Vivienda Nueva no crece.</b> El negocio no interesa: run-off −15%/año (39 → 20 de GTV).</div>
       <div><b>Meta 2030:</b> GTV consolidado ~5.000 bruto y margen de contribución después de financieros &gt; 200; crédito ~3.000 de GTV y &gt; 100 de margen.</div>
     </div>
@@ -63,7 +63,7 @@ PANE = r'''<!-- P30 START -->
   <div class="tblcard">
     <h2>4 · Crédito por fuente <span>originación US$M · margen US$M · # créditos</span></h2>
     <div class="tblscroll"><table id="p30t2" class="p30tbl"></table></div>
-    <div class="note">HabiCredit CO = canal abierto (+15%/año) + attach sobre MM e Inmo CO, margen 0,74% + 15 pbs de precio al banco. Broker MX desde 2027: 600 → 6.000 créditos. HabiCapital: plan deck, margen contable 1,9% → 5,6% del monto (NPV 4,89% solo para valoración). Home Equity: base = casas vendidas + clientes HabiCredit + 5% de leads (134 mil hogares en 2030), penetración madura 25%, LTV 30% sobre casa de US$72K (ticket US$21,6K).</div>
+    <div class="note">HabiCredit CO = canal abierto (+15%/año) + attach sobre MM e Inmo CO, margen 0,74% + 15 pbs de precio al banco. Broker MX desde 2027: 800 → 9.000 créditos. HabiCapital: ×2 del plan deck, escalera explícita (spread en tránsito + premio 5,5% + seguros 0,75% − costo de originación 1,17% + servicing 0,3% del libro administrado); el NPV 4,89% queda solo para valoración. Home Equity: base = casas vendidas + clientes HabiCredit + 5% de leads (134 mil hogares en 2030), penetración madura 15%, LTV 30% sobre casa de US$72K (ticket US$21,6K).</div>
   </div>
 
   <div class="tblcard">
@@ -76,27 +76,28 @@ PANE = r'''<!-- P30 START -->
       <tr><td class="l">Costo comercial</td><td>−0,75</td><td>−0,75</td><td>−0,75</td></tr>
       <tr class="tot"><td class="l">Total</td><td>~19 nominal · ~14 en VP</td><td><b>~13,8 · el 85% en el año 1</b></td><td>1,25</td></tr>
       <tr><td class="l">Capital por unidad</td><td>20 durante años</td><td>5 durante 4 meses</td><td>0</td></tr>
-      <tr><td class="l">CM 2030 con la misma base</td><td>44,5 (freno 81%)</td><td><b>90,1</b></td><td>7,9</td></tr>
+      <tr><td class="l">CM 2030 (penetración 15%)</td><td>~27 (con freno)</td><td><b>54,1</b></td><td>~5</td></tr>
     </tbody></table></div>
-    <div class="note">El premio es el supuesto crítico: cada punto son ~7 US$M de margen en 2030. Con comprador al 17% (premio 6,6%) el margen de Home Equity 2030 baja a 68; al 18% (3,3%) a 44, lo mismo que retener pero sin capital.</div>
+    <div class="note">El premio es el supuesto crítico en los dos productos: en Home Equity cada punto son ~4,4 US$M de margen en 2030; en HabiCapital, ~12. HabiCapital y Home Equity corren con la misma mecánica (originar, tener pocos meses, vender, administrar); difieren en producto, comprador (titularización vs venta bilateral) y premio.</div>
   </div>
 
   <div class="tblcard">
     <h2>6 · Qué tiene que ser verdad, y qué no está medido</h2>
     <div class="p30dec" style="margin-top:10px">
-      <div class="p30warn"><b>Comprador de cartera de Home Equity al 16%</b> con forward flow y servicing retenido, sobre US$730M/año en 2030. Hoy no existe uno probado en Colombia. Sostiene 90 de los 201 de margen.</div>
-      <div class="p30warn"><b>Base y penetración de Home Equity:</b> 134 mil hogares y 25% anual = 34 mil créditos en 2030, cinco veces HabiCredit hoy. Nadie ha medido el mercado de libre inversión con garantía.</div>
-      <div class="p30warn"><b>Inmo México ×16 en cuatro años</b> (467 → 7.500 cierres) y broker México de 100 a 6 mil créditos: cero años de evidencia de esa pendiente.</div>
-      <div class="p30warn"><b>HabiCapital coloca el 93% del mercado colombiano de titularización en 2030:</b> vehículos propios (universalidades, patrimonios con emisión) desde 2028 o el número no existe.</div>
+      <div class="p30warn"><b>Comprador de cartera de Home Equity al 16%</b> con forward flow y servicing retenido, sobre US$440M/año en 2030. Hoy no existe uno probado en Colombia. Sostiene 54 de los 204 de margen.</div>
+      <div class="p30warn"><b>HabiCapital ×2 = 20 mil hipotecas en 2030, ~22% de la vivienda usada financiada en Colombia, y 186% del mercado anual de titularización.</b> Sin vehículos propios y ventas bilaterales de cartera el número no existe. Es el supuesto más exigente del caso.</div>
+      <div class="p30warn"><b>Inmo México ×16 en cuatro años</b> (467 → 7.500 cierres) y broker México de 100 a 9 mil créditos (7,5% de la banca): cero años de evidencia de esa pendiente.</div>
+      <div class="p30warn"><b>Home Equity acotado:</b> 134 mil hogares × 15% = 20 mil créditos en 2030, tres veces HabiCredit hoy. Nadie ha medido el mercado de libre inversión con garantía; la primera cosecha de 2027 calibra conversión y pérdida.</div>
       <div class="p30warn"><b>Ticket de HabiCredit:</b> US$62K en el modelo; el memo de julio dice 259M COP (US$83K). Cambia el GTV de crédito en 30%.</div>
-      <div class="p30warn"><b>2027 sigue en −8 de EBTDA y 2028 es el año apretado de caja</b> (32 con la ronda de 40 adentro). El OPEX de crédito (US$100 por crédito + 0,3% del libro administrado) ya está contado: 14 en 2030.</div>
+      <div class="p30warn"><b>2027 queda en −1,5 de EBTDA y la caja mínima es 44 en 2027-28</b> con la ronda de 40 adentro. El OPEX de crédito (US$100 por crédito + 0,3% del libro administrado) ya está contado.</div>
     </div>
   </div>
 
   <div class="tblcard">
     <h2>7 · Conciliación 2030 <span>este caso plan contra las versiones anteriores · US$M</span></h2>
     <div class="tblscroll"><table class="p30tbl"><thead><tr><th class="l">Versión</th><th>GTV bruto</th><th>CM after fin.</th><th>EBTDA</th><th>Ronda</th><th>Nota</th></tr></thead><tbody>
-      <tr><td class="l"><b>Caso plan v2 (27-sep)</b></td><td><b>4.809</b></td><td><b>202</b></td><td><b>141</b></td><td>40 (2027)</td><td class="l">HE vendido a 4 meses, VN run-off, OPEX de crédito, impuestos en caja</td></tr>
+      <tr><td class="l"><b>Caso plan balanceado v2 (27-sep)</b></td><td><b>5.537</b></td><td><b>204</b></td><td><b>141</b></td><td>40 (2027)</td><td class="l">HabiCapital ×2 con escalera, HE 15% vendido a 4 meses, MX 9k, VN run-off, OPEX de crédito, impuestos en caja</td></tr>
+      <tr><td class="l">Caso plan anterior (HE 25%, HabiCapital ×1)</td><td>4.809</td><td>202</td><td>141</td><td>40 (2027)</td><td class="l">Home Equity 34 mil créditos: volumen juzgado exagerado</td></tr>
       <tr><td class="l">Base v2 (defaults, sin ronda)</td><td>3.563</td><td>92</td><td>42</td><td>0</td><td class="l">HE retenido, freno de capital al 15%</td></tr>
       <tr><td class="l">Paquete v11 base (24-ago, BBVA)</td><td>3.758</td><td>150</td><td>96</td><td>0</td><td class="l">serie v7 = reparto del total, no drivers; financieros dentro de MM</td></tr>
       <tr><td class="l">Paquete v11 con ronda</td><td>4.607</td><td>188</td><td>133</td><td>20-40</td><td class="l">unlock +30% MM / +40% crédito</td></tr>
@@ -183,6 +184,54 @@ s = s.replace('<div id="pane-vol" style="display:none">', PANE + '\n<div id="pan
 s = s.replace("const P={det:'pane-det',", "const P={p30:'pane-p30',det:'pane-det',")
 s = s.replace("const T={det:'tab-det',", "const T={p30:'tab-p30',det:'tab-det',")
 s = s.replace("  if(which==='jun')renderJunta();", "  if(which==='p30')drawP30();\n  if(which==='jun')renderJunta();")
+
+# ===================== PESTAÑA «CRECIMIENTO POR NEGOCIO» HASTA 2030 =====================
+i0 = s.index("// ================= PESTAÑA: CRECIMIENTO POR NEGOCIO"); i1 = s.index("function cnChks(){"); i1 = s.index("}\n", s.index("box.querySelectorAll('.cnfe')", i1)) + 2
+blk = s[i0:i1]
+blk = blk.replace("const CN_YY=[2024,2025,2026,2027];", """const CN_YY=[2024,2025,2026,2027,2028,2029,2030]; const CN_N=CN_YY.length, CN_LAST=CN_N-1;
+// 2027-2030 salen del Modelo 2030 v2 (caso plan balanceado, payload P30). Las líneas nuevas solo existen aquí.
+const CN_EXTRA=[{id:'homeeq',name:'Home Equity',pais:'CO',cap:'light',role:'prioridad',color:'#D95926',extra:true},{id:'brokermx',name:'Broker MX (HabiCredit)',pais:'MX',cap:'light',role:'margen',color:'#0B7285',extra:true}];
+const CN_MAP={mmco:['MM.co_gtv','MM.co_cm','MM.co_cm_pre','CO'],mmmx:['MM.mx_gtv','MM.mx_cm','MM.mx_cm_pre','MX'],inmoco:['Red.co_gtv','Red.co_cm',null,'CO'],inmomx:['Red.mx_gtv','Red.mx_cm',null,'MX'],
+  habicredit:['Credito.hcr_orig','Credito.hcr_cm',null,'CO'],pulppo:['Red.pu_gtv','Red.pu_cm',null,'MX'],habicapital:['Credito.hcap_orig','Credito.hcap_cm',null,'CO'],vivnueva:['Red.vn_gtv','Red.vn_cm',null,'MX'],
+  homeeq:['Credito.he_orig','Credito.he_cm',null,'CO'],brokermx:['Credito.mx_orig','Credito.mx_cm',null,'MX']};
+const CN_BLOCK_MEMBERS={bmm:['mmco','mmmx'],bcred:['habicredit','habicapital','homeeq','brokermx'],binmo:['inmoco','inmomx','pulppo'],bvn:['vivnueva']};
+function cnFxDisp(p,y){ if(!fxVar()) return FXCONST[p]; const r=FX[p]&&FX[p][y]; return r||(p==='CO'?3175:17.30); }
+function cnPlanLine(id,y,key){ const m=CN_MAP[id]; if(!m) return null; const d=P30.plan[String(y)]; if(!d) return null;
+  const k=key==='g'?m[0]:((document.getElementById('postfin').checked||!m[2])?m[1]:m[2]); const v=d[k]; if(v==null) return null;
+  const loc=m[3]==='CO'?v*3100:v*17; return loc/cnFxDisp(m[3],y); }
+function cnPlan(e,k,key){ const y=CN_YY[k];
+  if(e.members||CN_BLOCK_MEMBERS[e.id]){ const ids=CN_BLOCK_MEMBERS[e.id]||e.members; let t=null;
+    ids.forEach(id=>{ const m=byId[id]||CN_EXTRA.find(x=>x.id===id); if(!m||!memberOk(m)) return; const v=cnPlanLine(id,y,key); if(v!=null) t=(t||0)+v; }); return t; }
+  return cnPlanLine(e.id,y,key); }""")
+blk = blk.replace("function cnReset(){ CN_SEL={}; ACTIVE().forEach(e=>CN_SEL[e.id]=true); }\nfunction cnAct(){ return ACTIVE().filter(e=>cnOk(e)&&CN_SEL[e.id]); }",
+ "const cnActive=()=>AGRUP()==='bloque'?BLOCKS:LINES.concat(CN_EXTRA);\nfunction cnReset(){ CN_SEL={}; cnActive().forEach(e=>CN_SEL[e.id]=true); }\nfunction cnAct(){ return cnActive().filter(e=>cnOk(e)&&CN_SEL[e.id]); }")
+blk = blk.replace("const cnG=(e,k)=>G(e,CN_I[k]);\nconst cnC=(e,k)=>contrib(e,CN_I[k]);",
+ "const cnG=(e,k)=>CN_YY[k]>=2027?cnPlan(e,k,'g'):(e.extra?null:G(e,CN_I[k]));\nconst cnC=(e,k)=>CN_YY[k]>=2027?cnPlan(e,k,'c'):(e.extra?null:contrib(e,CN_I[k]));")
+blk = blk.replace("const W=262,GH=68,LH=54,PAD=30,GAP=20;", "const W=300,GH=68,LH=54,PAD=30,GAP=20;")
+blk = blk.replace("const bw=26, slot=(W-PAD-6)/4, bx=k=>PAD+slot*k+slot/2;", "const slot=(W-PAD-6)/CN_N, bw=Math.min(24,slot*0.62), bx=k=>PAD+slot*k+slot/2;")
+blk = blk.replace("${y===2027?'27e':String(y).slice(2)}", "${String(y).slice(2)}${y>=2027?'p':''}")
+blk = blk.replace("const cg=cnCagr(g[0],g[3],3), dp=(p[0]!=null&&p[3]!=null)?p[3]-p[0]:null;", "const cg=cnCagr(g[0],g[CN_LAST],CN_LAST), dp=(p[0]!=null&&p[CN_LAST]!=null)?p[CN_LAST]-p[0]:null;")
+blk = blk.replace("$${cnF(g[3])}M de GTV en 2027e", "$${cnF(g[CN_LAST])}M de GTV en 2030p")
+blk = blk.replace("CAGR GTV 24-27", "CAGR GTV 24-30").replace("Margen 2027e</div><div class=\"v\" style=\"color:${e.color}\">${p[3]==null?'n/d':p[3].toFixed(2)+'%'}", "Margen 2030p</div><div class=\"v\" style=\"color:${e.color}\">${p[CN_LAST]==null?'n/d':p[CN_LAST].toFixed(2)+'%'}")
+blk = blk.replace("const slot=(X1-X0)/4, bw=Math.min(120,slot*0.5);", "const slot=(X1-X0)/CN_N, bw=Math.min(120,slot*0.5);")
+blk = blk.replace("const slot=(X1-X0)/4, sx=k=>X0+slot*k+slot/2;", "const slot=(X1-X0)/CN_N, sx=k=>X0+slot*k+slot/2;")
+blk = blk.replace("${y}${y===2027?'e':''}", "${y}${y>=2027?'p':''}")
+blk = blk.replace("+`<th>YoY 25</th><th>YoY 26</th><th>YoY 27e</th><th>CAGR 24-27</th></tr></thead><tbody>`;", "+CN_YY.slice(1).map(y=>`<th>YoY ${String(y).slice(2)}${y>=2027?'p':''}</th>`).join('')+`<th>CAGR 24-30</th></tr></thead><tbody>`;")
+blk = blk.replace("const row=(name,color,v,cls)=>{const c=cnCagr(v[0],v[3],3);", "const row=(name,color,v,cls)=>{const c=cnCagr(v[0],v[CN_LAST],CN_LAST);")
+blk = blk.replace("+cnPc(cnYoY(v[0],v[1]))+cnPc(cnYoY(v[1],v[2]))+cnPc(cnYoY(v[2],v[3]))", "+v.slice(1).map((x,i)=>cnPc(cnYoY(v[i],x))).join('')")
+blk = blk.replace("<th>Δ 2024 → 2027e</th>", "<th>Δ 2024 → 2030p</th>")
+blk = blk.replace("const row=(n,color,p,cls)=>{const d=(p[0]!=null&&p[3]!=null)?p[3]-p[0]:null;", "const row=(n,color,p,cls)=>{const d=(p[0]!=null&&p[CN_LAST]!=null)?p[CN_LAST]-p[0]:null;")
+blk = blk.replace("const g0=E.map(e=>cnG(e,0)||0), g3=E.map(e=>cnG(e,3)||0);", "const g0=E.map(e=>cnG(e,0)||0), g3=E.map(e=>cnG(e,CN_LAST)||0);")
+blk = blk.replace("const m3=E.map((e,i)=>g3[i]?(cnC(e,3)||0)/g3[i]*100:0);", "const m3=E.map((e,i)=>g3[i]?(cnC(e,CN_LAST)||0)/g3[i]*100:0);")
+blk = blk.replace("'Sin base de 2024 o de 2027e en la selección", "'Sin base de 2024 o de 2030p en la selección").replace("['Margen 2027e',p3.toFixed(2)+'%','llegada']", "['Margen 2030p',p3.toFixed(2)+'%','llegada']")
+blk = blk.replace("<th>% del GTV 2027e</th><th>% del margen 2027e</th>", "<th>% del GTV 2030p</th><th>% del margen 2030p</th>").replace("`En 2027e ${E[bi].name} hace", "`En 2030p ${E[bi].name} hace")
+blk = blk.replace("box.innerHTML=ACTIVE().map(e=>", "box.innerHTML=cnActive().map(e=>")
+blk = blk.replace("document.getElementById('cnnote').innerHTML=\n    `<b>Fuente y método.</b>", "document.getElementById('cnnote').innerHTML=\n    `<b>2027p-2030p = caso plan balanceado del Modelo 2030 v2 (27-sep-2026)</b>, por línea de negocio y convertido a la tasa de esta pestaña; reemplaza al 2027e de agosto. Home Equity y Broker MX son líneas nuevas que solo existen desde 2027. Los bloques suman sus líneas incluyendo las nuevas. `\n   +`<b>Fuente y método (2024-2026).</b>")
+assert "CN_EXTRA" in blk and "cnPlanLine" in blk and "CN_LAST" in blk
+s = s[:i0] + blk + s[i1:]
+s = s.replace("<h2>Crecimiento por negocio · GTV y margen de contribución 2024-2027e</h2>", "<h2>Crecimiento por negocio · GTV y margen de contribución 2024-2030 <span style=\"font-size:11px;font-weight:600;color:#E4D7FA\">· 2027-2030 = caso plan v2</span></h2>")
+s = s.replace(".cngrid{", ".cngrid{grid-template-columns:repeat(auto-fill,minmax(300px,1fr));", 1) if ".cngrid{" in s else s
+
 # 4) header: aviso
 s = s.replace('<h1>Habi — Evolución por negocio · tamaño = margen de contribución</h1>',
               '<h1>Habi — Evolución por negocio · tamaño = margen de contribución</h1>\n  <p style="margin-top:4px;font-size:12px;color:#FFD166;font-weight:700">Nuevo (27-sep-2026): pestaña «Plan 2030» con el caso plan del Modelo 2030 v2 y las decisiones tomadas. Las proyecciones 2027-2030 de las demás pestañas son las de agosto.</p>')
